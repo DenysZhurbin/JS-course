@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="body">
+    <div class="wrapper">
+        <div class="links">
+            <a class="link link--upper-left" href="../../index.html">На головну</a>
+            <a class="link link--upper-left isDisabled" href="task0.html">Задача 0.</a>
+            <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+            <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+            <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+            <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+            <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+            <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+            <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+        </div>
+        <h1 class="title">Задача №0.</h1>
+        <div class="wrapper__inner">
+            <p>Обчислити значення виразів</p>
+
+            <script>
+                //вхідні данні
+                let a = parseInt(prompt("Значення 'a'?", "0"))
+                let b = parseInt(prompt("Значення 'b'?", "0"))
+                let c = parseInt(prompt("Значення 'c'?", "0"))
+                const d = 12
+
+                //розрахунок данних
+                let s1 = a + d + b
+                let s2 = Math.sqrt((a + b) / (2 * a))
+                let s3 = Math.cbrt((a + b) * c)
+                let s4 = Math.sin(a / -b)
+
+                //вивід
+                document.write(`
+                    S1 дорівнює: ${s1}<br />
+                    S2 дорівнює: ${s2}<br />
+                    S3 дорівнює: ${s3}<br />
+                    S4 дорівнює: ${s4}<br />
+                `)
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>

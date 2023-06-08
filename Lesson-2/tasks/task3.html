@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="body">
+    <div class="wrapper">
+        <div class="links">
+            <a class="link link--upper-left" href="../../index.html">На головну</a>
+            <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+            <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+            <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+            <a class="link link--upper-left isDisabled" href="task3.html">Задача 3.</a>
+            <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+            <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+            <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+            <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+        </div>
+        <h1 class="title">Задача №3.</h1>
+        <div class="wrapper__inner">
+            <p>Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від загальної вартості).</p>
+
+            <script>
+                //вхідні данні
+                let quantityGoods = parseInt(prompt("Кількість товару в од.?", "0"))
+                let pricePerUnit = parseFloat(prompt("Вартість одиниці товару?", "0"))
+                let totalCost = 0
+                const taxRate = 5
+                let tax = 0
+
+                //розрахунок данних
+                totalCost = quantityGoods * pricePerUnit
+                tax = (totalCost / 100) * taxRate
+
+
+                //вивід
+                document.write(`
+                    <p>Загальна вартість товару: ${totalCost} грн.</p>
+                    <p>Налог 5% від загальної вартості: ${tax} грн.</p>
+                `)
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>

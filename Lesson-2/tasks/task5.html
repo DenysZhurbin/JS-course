@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="body">
+    <div class="wrapper">
+        <div class="links">
+            <a class="link link--upper-left" href="../../index.html">На головну</a>
+            <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+            <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+            <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+            <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+            <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+            <a class="link link--upper-left isDisabled" href="task5.html">Задача 5.</a>
+            <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+            <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+        </div>
+        <h1 class="title">Задача №5.</h1>
+        <div class="wrapper__inner">
+            <p>Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і хвилин.</p>
+
+            <script>
+                //вхідні данні
+                let secondsPassed = parseInt(prompt("Кількість секунд що пройшла від початку доби:", "0"))
+                let minutesLeft = 0
+                let hoursLeft = 0
+
+
+                //розрахунок данних
+                minutesLeft = parseInt(((24 * 60 * 60) - secondsPassed) / 60)
+                hoursLeft = parseInt(((24 * 60 * 60) - secondsPassed) / 60 / 60)
+
+
+                //вивід
+                document.write(`
+                    <p>Залишилось в хвилинах: ${minutesLeft}</p>
+                    <p>Залишилось в годинах: ${hoursLeft}</p>
+                `)
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>

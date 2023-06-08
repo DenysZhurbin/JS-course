@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="body">
+    <div class="wrapper">
+        <div class="links">
+            <a class="link link--upper-left" href="../../index.html">На головну</a>
+            <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+            <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+            <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+            <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+            <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+            <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+            <a class="link link--upper-left isDisabled" href="task6.html">Задача 6.</a>
+            <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+        </div>
+        <h1 class="title">Задача №6.</h1>
+        <div class="wrapper__inner">
+            <p>З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного товару окремо та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки.</p>
+
+            <script>
+                //вхідні данні
+                let product1 = parseInt(prompt("Кількість першого товару", "0"))
+                let priceProduct1 = parseFloat(prompt("Вартість першого товару", "0"))
+                let totalPrice1 = 0
+                let product2 = parseInt(prompt("Кількість другого товару", "0"))
+                let priceProduct2 = parseFloat(prompt("Вартість другого товару", "0"))
+                let totalPrice2 = 0
+                let product3 = parseInt(prompt("Кількість третього товару", "0"))
+                let priceProduct3 = parseFloat(prompt("Вартість третього товару", "0"))
+                let totalPrice3 = 0
+                let sum = 0
+
+                //розрахунок данних
+                totalPrice1 = product1 * priceProduct1
+                totalPrice2 = product2 * priceProduct2
+                totalPrice3 = product3 * priceProduct3
+                sum = totalPrice1 + totalPrice2 + totalPrice3
+
+                //вивід
+                document.write(`
+                    <table style="border-collapse: collapse; border-spacing: 0; table-layout: fixed;">
+                        <tr>
+                            <td style="border-collapse: collapse; border-spacing: 0;">Товар</td>
+                            <td style="border-collapse: collapse; border-spacing: 0;">Кількість</td>
+                            <td style="border-collapse: collapse; border-spacing: 0;">Вартість</td>
+                            <td style="border-collapse: collapse; border-spacing: 0;">Загальна вартість</td>
+                        </tr>
+                        <tr>
+                            <td style="border-collapse: collapse; border-spacing: 0;">1</td>
+                            <td style="border-collapse: collapse; border-spacing: 0;">${product1}</td>
+                            <td style="border-collapse: collapse; border-spacing: 0;">${priceProduct1}</td>
+                            <td style="border-collapse: collapse; border-spacing: 0;">${totalPrice1}</td>
+                        </tr>
+                        <tr>
+                            <td style="border-collapse: collapse; border-spacing: 0;">2</td>
+                            <td style="border-collapse: collapse; border-spacing: 0;">${product2}</td>
+                            <td style="border-collapse: collapse; border-spacing: 0;">${priceProduct2}</td>
+                            <td style="border-collapse: collapse; border-spacing: 0;">${totalPrice2}</td>
+                        </tr>
+                        <tr>
+                            <td style="border-collapse: collapse; border-spacing: 0;">3</td>
+                            <td style="border-collapse: collapse; border-spacing: 0;">${product3}</td>
+                            <td style="border-collapse: collapse; border-spacing: 0;">${priceProduct3}</td>
+                            <td style="border-collapse: collapse; border-spacing: 0;">${totalPrice3}</td>
+                        </tr>
+                        <tr>
+                            <td style="border-collapse: collapse; border-spacing: 0;">Підсумок</td>
+                            <td style="border-collapse: collapse; border-spacing: 0;"></td>
+                            <td style="border-collapse: collapse; border-spacing: 0;"></td>
+                            <td style="border-collapse: collapse; border-spacing: 0;">${sum}</td>
+                        </tr>
+                    </table>
+                `)
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>
