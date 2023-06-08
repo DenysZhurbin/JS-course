@@ -28,15 +28,18 @@
                 //вхідні данні
                 let randomMonth = 0
                 let randomDay = 0
+                let sum = 0
 
                 //розрахунок данних
                 randomMonth = Math.floor(Math.random() * 12) + 1
                 randomDay = Math.floor(Math.random() * 6)
+                sum = parseInt(randomDay + randomMonth)
 
                 //вивід
                 document.write(`
                     <p>Випадковий місяць від 1 до 12: ${randomMonth}</p>
                     <p>Випадковий день від 0 до 6: ${randomDay}</p>
+                    <p>Та їх сума дорівнює: ${sum}</p>
                 `)
 
             </script>
