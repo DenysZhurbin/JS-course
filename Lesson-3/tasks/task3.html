@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="body">
+    <div class="wrapper">
+        <div class="links">
+            <a class="link link--upper-left" href="../../index.html">На головну</a>
+            <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+            <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+            <a class="link link--upper-left isDisabled" href="task3.html">Задача 3.</a>
+            <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+            <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+            <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+            <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+        </div>
+        <h1 class="title">Задача №3.</h1>
+        <div class="wrapper__inner">
+            <p>Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.</p>
+
+            <script>
+                // вхідні данні
+                const randomNumber = Math.floor(Math.random() * 5) + 1;
+                let attemptScore = 2;
+                let userNumber = parseInt(prompt(`Вгадайте число від 1 до 5 з ${attemptScore} спроб`, "0"));
+
+
+                // розрахунок данних
+                result = (randomNumber === userNumber);
+                attemptScore -= 1;
+
+                // умова та вивід
+                if (result) {
+                    alert("ВІТАЮ! Ви вгадали!");
+                } else if (result === false) {
+                    let userNumber = parseInt(prompt(`Залишилась ${attemptScore} спроб`, "0"));
+                    if (result) {
+                        alert("ВІТАЮ! Ви вгадали!");
+                    } else {
+                        alert("Нажаль Ви не вгадали =(");
+                    }
+                }
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>

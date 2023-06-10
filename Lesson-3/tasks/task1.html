@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="body">
+    <div class="wrapper">
+        <div class="links">
+            <a class="link link--upper-left" href="../../index.html">На головну</a>
+            <a class="link link--upper-left isDisabled" href="task1.html">Задача 1.</a>
+            <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+            <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+            <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+            <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+            <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+            <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+        </div>
+        <h1 class="title">Задача №1.</h1>
+        <div class="wrapper__inner">
+            <p>З клавіатури вводяться імена двох дітей та кількість у них цукерок. Вивести не екран ім’я тієї дитини, у якої кількість цукерок є більшою, або вивести, що кількість однакова.</p>
+
+            <script>
+                // вхідні данні
+                const firstChildName = prompt("Перше ім'я?");
+                const firstChildCandies = parseInt(prompt("Скільки конфет у першої дитини?", 0));
+                const secondChildName = prompt("Друге ім'я?");
+                const secondChildCandies = parseInt(prompt("Скільки конфет у другої дитини?", 0));
+
+                // розрахунок данних
+                if (firstChildCandies === secondChildCandies) {
+                    var result = "Кількість конфет однакова";
+                } else if (firstChildCandies > secondChildCandies) {
+                    var result = firstChildName;
+                } else {
+                    var result = secondChildName;
+                }
+
+                // вивід
+                document.write(`${result}`);
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>

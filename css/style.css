@@ -82,7 +82,6 @@ td {
 
 .links {
     position: absolute;
-    /* position: sticky; */
     top: 26px;
     left: 16px;
     display: flex;
@@ -109,6 +108,7 @@ td {
     cursor: not-allowed;
     opacity: 0.5;
     text-decoration: none;
+    pointer-events: none; 
 }
 
 .wrapper__inner {

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="body">
+    <div class="wrapper">
+        <div class="links">
+            <a class="link link--upper-left" href="../../index.html">На головну</a>
+            <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+            <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+            <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+            <a class="link link--upper-left isDisabled" href="task4.html">Задача 4.</a>
+            <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+            <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+            <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+        </div>
+        <h1 class="title">Задача №4.</h1>
+        <div class="wrapper__inner">
+            <p>З клавіатури вводиться вік людини. Вивести на екран ким він є (дитиною у садочку, школярем, студентом, працівником, пенсіонером).</p>
+
+            <script>
+                // вхідні данні
+                let result = "";
+                const userOld = Math.floor(prompt("Ваш вік?", "0"));
+
+                // розрахунок данних
+                switch (true) {
+                    case userOld >= 3 && 6 >= userOld: result = "Дитина у садочку";
+                        break;
+                    case userOld >= 7 && 15 >= userOld: result = "Школяр";
+                        break;
+                    case userOld >= 16 && 19 >= userOld: result = "Студент";
+                        break;
+                    case userOld >= 20 && 60 >= userOld: result = "Працівник";
+                        break;
+                    case userOld >= 61 && 120 >= userOld: result = "Пенсіонер";
+                        break;
+                    default: result = "Не коректні данні";
+                        break;
+                }
+                // вивід
+                document.write(`${result}`);
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>

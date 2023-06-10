@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="body">
+    <div class="wrapper">
+        <div class="links">
+            <a class="link link--upper-left" href="../../index.html">На головну</a>
+            <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+            <a class="link link--upper-left isDisabled" href="task2.html">Задача 2.</a>
+            <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+            <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+            <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+            <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+            <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+        </div>
+        <h1 class="title">Задача №2.</h1>
+        <div class="wrapper__inner">
+            <p>З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.</p>
+
+            <script>
+                // вхідні данні
+                const goodsPrice = parseFloat(prompt("Ціна товару", 0));
+                const moneyReceived = parseFloat(prompt("Отримано грошей", 0));
+                const lotteryTicketPrice = 4;
+                let result = "";
+
+                // розрахунок данних
+                if (goodsPrice === moneyReceived) {
+                    result = "Дякуємо за покупку";
+                } else if (goodsPrice > moneyReceived) {
+                    result = "Не вистачає грошей";
+                } else if (goodsPrice < moneyReceived) {
+                    result = confirm("Бажаєте придбати лотерейний білет за 4 грн?");
+                    console.log(result, "2");
+                    result = result ? "Відповідь покупця: Так, будь ласка!" : "Відповідь покупця: Ні, дякую!";
+                }
+
+                // вивід
+                document.write(`${result}`);
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>
