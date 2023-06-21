@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="body">
+    <div class="wrapper">
+        <div class="links">
+            <a class="link link--upper-left" href="../../index.html">На головну</a>
+            <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+            <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+            <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+            <a class="link link--upper-left" href="task12.html">Задача 12.</a>
+            <a class="link link--upper-left isDisabled" href="task14.html">Задача 14.</a>
+        </div>
+        <h1 class="title">Задача №14.</h1>
+        <div class="wrapper__inner">
+            <p>Каса. Користувачу повідомляють суму, яку йому треба сплатити. Користувач поступово вводить суму грошей до тих пір, поки суми не буде достатньо для оплати товарів (кожного разу користувачу повідомляють, яку ще суму потрібно ввести). </p>
+            <script>
+                // вхідні данні
+                let price = 236;
+                let sum = parseInt(prompt(`До сплати: ${price} грн`, 0));
+
+                // розрахунок данних та вивід
+                while (sum<=price) {
+                    price = price - sum
+                    sum = parseInt(prompt(`До сплати залишилось: ${price} грн`, 0));
+                }
+                if (sum > price) alert(`Ваша решта: ${sum-price}`);
+            </script>
+        </div>
+    </div>
+</body>
+</html>

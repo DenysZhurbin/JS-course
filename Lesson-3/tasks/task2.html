@@ -35,7 +35,7 @@
                     result = "Дякуємо за покупку";
                 } else if (goodsPrice > moneyReceived) {
                     result = "Не вистачає грошей";
-                } else if (goodsPrice < moneyReceived) {
+                } else {
                     result = confirm("Бажаєте придбати лотерейний білет за 4 грн?");
                     console.log(result, "2");
                     result = result ? "Відповідь покупця: Так, будь ласка!" : "Відповідь покупця: Ні, дякую!";

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="body">
+    <div class="wrapper">
+        <div class="links">
+            <a class="link link--upper-left" href="../../index.html">На головну</a>
+            <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+            <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+            <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+            <a class="link link--upper-left isDisabled" href="task12.html">Задача 12.</a>
+            <a class="link link--upper-left" href="task14.html">Задача 14.</a>
+        </div>
+        <h1 class="title">Задача №12.</h1>
+        <div class="wrapper__inner">
+            <p>Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як одне з чотирьох зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн, три других – 200, три третіх – 500, три четвертих зображення – 1000грн). Використати цикли і switch (для вибору зображення за номером).</p>
+            <a class="link link--upper-left" href="task12.html">Натискати тут</a>
+            <script>
+                // вхідні данні
+                let randomImg;
+                let randNumber = 0;
+                let sum = 0;
+
+                // розрахунок данних та вивід
+                for (let i = 1; i <= 3; i++) {
+                    randNumber = 1 + Math.floor(Math.random() * (4-1+1));
+                    sum += Math.pow(10, randNumber - 1) //sum +=  10 ^ imgNum-1
+                    
+                    switch (randNumber) {
+                    case 1:
+                        randomImg = '<img class="dark-block-webinar" src="img/pic1.png" alt="icon" width="100" style="display: inline-block; height: auto; margin: auto; vertical-align: middle;">';
+                        break;
+                    case 2:
+                        randomImg = '<img class="dark-block-webinar" src="img/pic2.png" alt="icon" width="100" style="display: inline-block; height: auto; margin: auto; vertical-align: middle;">';
+                        break;
+                    case 3:
+                        randomImg = '<img class="dark-block-webinar" src="img/pic3.png" alt="icon" width="100" style="display: inline-block; height: auto; margin: auto; vertical-align: middle;">';
+                        break;
+                    case 4:
+                        randomImg = '<img class="dark-block-webinar" src="img/pic4.png" alt="icon" width="100" style="display: inline-block; height: auto; margin: auto; vertical-align: middle;">';
+                        break;
+                    default:
+                        document.write('Не коректні дані');
+                    };
+
+                    document.write(randomImg)
+                }
+                if (sum === 3) document.write('<span style="margin-left: 20px; font-weight: bold; font-size: 24px;">Ви виграли: 100грн</span>')
+                if (sum === 30) document.write('<span style="margin-left: 20px; font-weight: bold; font-size: 24px;">Ви виграли: 200грн</span>')
+                if (sum === 300) document.write('<span style="margin-left: 20px; font-weight: bold; font-size: 24px;">Ви виграли: 500грн</span>')
+                if (sum === 3000) document.write('<span style="margin-left: 20px; font-weight: bold; font-size: 24px;">Ви виграли: 1000грн</span>')
+            </script>
+        </div>
+    </div>
+</body>
+</html>

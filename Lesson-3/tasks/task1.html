@@ -29,14 +29,15 @@
                 const firstChildCandies = parseInt(prompt("Скільки конфет у першої дитини?", 0));
                 const secondChildName = prompt("Друге ім'я?");
                 const secondChildCandies = parseInt(prompt("Скільки конфет у другої дитини?", 0));
-
+                let result;
+                
                 // розрахунок данних
                 if (firstChildCandies === secondChildCandies) {
-                    var result = "Кількість конфет однакова";
+                    result = "Кількість конфет однакова";
                 } else if (firstChildCandies > secondChildCandies) {
-                    var result = firstChildName;
+                    result = firstChildName;
                 } else {
-                    var result = secondChildName;
+                    result = secondChildName;
                 }
 
                 // вивід

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="body">
+    <div class="wrapper">
+        <div class="links">
+            <a class="link link--upper-left" href="../../index.html">На головну</a>
+            <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+            <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+            <a class="link link--upper-left isDisabled" href="task6.html">Задача 6.</a>
+            <a class="link link--upper-left" href="task12.html">Задача 12.</a>
+            <a class="link link--upper-left" href="task14.html">Задача 14.</a>
+        </div>
+        <h1 class="title">Задача №6.</h1>
+        <div class="wrapper__inner">
+            <p>Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком.</p>
+
+            <script>
+                // вхідні данні
+                let number = 0;
+                // розрахунок данних та вивід
+                for (let i = 1; i <= 3; i++) {
+                    document.write('<table style="border-collapse: collapse; border-spacing: 0; table-layout: fixed; margin: 10px;">');
+                        for (let i = 1; i <= 3; i++) {
+                            document.write('<tr>');
+                                for (let i = 1; i <= 3; i++) {
+                                    number++
+                                    document.write(`<td style="border-collapse: collapse; border-spacing: 0;">${number}</td>`);
+                                }
+                            document.write('</tr>');
+                        }
+                    document.write('</table>');
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

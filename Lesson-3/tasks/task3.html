@@ -31,15 +31,14 @@
 
 
                 // розрахунок данних
-                result = (randomNumber === userNumber);
                 attemptScore -= 1;
 
                 // умова та вивід
-                if (result) {
+                if (randomNumber === userNumber) {
                     alert("ВІТАЮ! Ви вгадали!");
-                } else if (result === false) {
-                    let userNumber = parseInt(prompt(`Залишилась ${attemptScore} спроб`, "0"));
-                    if (result) {
+                } else if ((randomNumber === userNumber) === false) {
+                    userNumber = parseInt(prompt(`Залишилась ${attemptScore} спроб`, "0"));
+                    if (randomNumber === userNumber) {
                         alert("ВІТАЮ! Ви вгадали!");
                     } else {
                         alert("Нажаль Ви не вгадали =(");
