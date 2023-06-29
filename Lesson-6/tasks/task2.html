@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left isDisabled" href="task2.html"
+          >Задача 2.</a
+        >
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 9.</a>
+      </div>
+      <h1 class="title">Задача №2. та пункт 2.1.</h1>
+      <div class="wrapper__inner">
+        <p>Відобразити трикутник за допомогою символів «о»</p>
+        <p>Пункт №2.</p>
+
+        <script>
+          //вхідні данні
+          let output = "";
+          let innerSteps = 7;
+
+          //розрахунок данних для 2.
+          for (let i = 1; i <= 7; i++) {
+            for (let j = 0; j < i; j++) {
+              output += "o";
+            }
+            output += "<br>";
+          }
+
+          output += `<br> <p>Пункт №2.1.</p> <br>`;
+
+          //розрахунок данних для 2.1.
+          for (let i = 1; i <= 7; i++) {
+            for (let k = 0; k < innerSteps; k++) {
+              output += "&nbsp;";
+            }
+            innerSteps--;
+            for (let j = 0; j < i; j++) {
+              output += "o";
+            }
+            output += "<br>";
+          }
+
+          //вивід 2. та 2.1.
+          document.write(output);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

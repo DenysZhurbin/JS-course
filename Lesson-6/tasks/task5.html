@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left isDisabled" href="task5.html"
+          >Задача 5.</a
+        >
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 9.</a>
+      </div>
+      <h1 class="title">Задача №5.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Інвестор вклав тис. грн на 20 років під 20% річних. Визначити за
+          допомогою циклів суму, яку він одержить (без оподаткування).
+        </p>
+
+        <script>
+          //   вхідні данні
+          const years = 20;
+          const interestRate = 20;
+          const attachmentValue = parseInt(
+            prompt("Який ваш вклад на 20 років, під 20% річних?", 0)
+          );
+          let profit = 0;
+
+          //   розрахунок данних
+          for (let i = 0; i < years; i++) {
+            profit += ((attachmentValue + profit) / 100) * interestRate;
+          }
+          profit += attachmentValue;
+          //   вивід
+          document.write(
+            `Прибуток через 20 років, складає: ${profit.toFixed(2)}`
+          );
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

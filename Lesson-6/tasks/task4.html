@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left isDisabled" href="task4.html"
+          >Задача 4.</a
+        >
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 9.</a>
+      </div>
+      <h1 class="title">Задача №4.</h1>
+      <div class="wrapper__inner">
+        <p>Побудувати ялинку</p>
+
+        <script>
+          //вхідні данні
+          let output = "";
+
+          //розрахунок данних
+          for (let x = 0; x < 3; x++) {
+            for (let i = 1; i <= 5; i++) {
+              for (let j = 0; j < i; j++) {
+                output += "o";
+              }
+              output += "<br>";
+            }
+          }
+
+          //вивід
+          document.write(`${output}`);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
