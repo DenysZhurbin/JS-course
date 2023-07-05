@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left isDisabled" href="task3.html"
+          >Задача 3.</a
+        >
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+      </div>
+      <h1 class="title">Задача №3.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Створити окремі функції, які для 4 чисел знаходять: 1)суму; 2)добуток;
+          3)середнє арифметичне; 4)мінімальне значення.
+        </p>
+
+        <script>
+          //вхідні данні
+          const firstNumber = parseInt(prompt("Введіть переше число:", 0));
+          const secondNumber = parseInt(prompt("Введіть друге число:", 0));
+          const thirdNumber = parseInt(prompt("Введіть трете число:", 0));
+          const fourNumber = parseInt(prompt("Введіть черверте число:", 0));
+
+          //розрахунок данних
+          function getSum(num1, num2, num3, num4) {
+            let value = num1 + num2 + num3 + num4;
+            return value;
+          }
+
+          function getMultiplied(num1, num2, num3, num4) {
+            let value = num1 * num2 * num3 * num4;
+            return value;
+          }
+
+          function getAverage(num1, num2, num3, num4) {
+            let value = num1 + num2 + num3 + num4;
+            value /= 4;
+            return value;
+          }
+
+          function getMinValue(num1, num2, num3, num4) {
+            let value = +Infinity;
+            if (num1 < value) value = num1;
+            if (num2 < value) value = num2;
+            if (num3 < value) value = num3;
+            if (num4 < value) value = num4;
+            return value;
+          }
+
+          //вивід
+          let result = getSum(
+            firstNumber,
+            secondNumber,
+            thirdNumber,
+            fourNumber
+          );
+
+          document.write(`Сума: ${result};<br><br> `);
+
+          result = getMultiplied(
+            firstNumber,
+            secondNumber,
+            thirdNumber,
+            fourNumber
+          );
+
+          document.write(`Добуток: ${result};<br><br> `);
+
+          result = getAverage(
+            firstNumber,
+            secondNumber,
+            thirdNumber,
+            fourNumber
+          );
+
+          document.write(`Середнє арифметичне: ${result};<br><br> `);
+
+          result = getMinValue(
+            firstNumber,
+            secondNumber,
+            thirdNumber,
+            fourNumber
+          );
+
+          document.write(`Минімальне серед 4х значень: ${result};<br><br> `);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

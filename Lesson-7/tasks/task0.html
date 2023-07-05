@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left isDisabled" href="task0.html"
+          >Задача 0.</a
+        >
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+      </div>
+      <h1 class="title">Задача №0.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Створити функцію, яка за номером місяця повертає пору року, до якої
+          відноситься цей місяць.
+        </p>
+
+        <script>
+          //вхідні данні
+          const monthNumber = parseInt(prompt("Введіть номер місяця:"));
+
+          //розрахунок данних
+          function whatSeason(monthNumber) {
+            switch (monthNumber) {
+              case 12:
+              case 1:
+              case 2:
+                return "Зима";
+              case 3:
+              case 4:
+              case 5:
+                return "Весна";
+              case 6:
+              case 7:
+              case 8:
+                return "Літо";
+              case 9:
+              case 10:
+              case 12:
+                return "Осінь";
+              default:
+                break;
+            }
+          }
+
+          //вивід
+          alert(whatSeason(monthNumber));
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

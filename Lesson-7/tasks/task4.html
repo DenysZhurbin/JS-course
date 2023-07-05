@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left isDisabled" href="task4.html"
+          >Задача 4.</a
+        >
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+      </div>
+      <h1 class="title">Задача №4.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька
+          результатів: кількість парних, кількість додатних, кількість більших
+          за 100.
+        </p>
+
+        <script>
+          //вхідні данні
+          let userNumbersArray = [];
+          for (let i = 1; i <= 3; i++) {
+            userNumbersArray.push(parseInt(prompt(`Введіть число №${i}`)));
+          }
+
+          //розрахунок данних
+          function propertiesOfThreeNumbers(arr) {
+            let doubleNum = 0,
+              positivesNum = 0,
+              over100 = 0;
+
+            arr.forEach((el) => {
+              if (el % 2 === 0) doubleNum++;
+              if (el > 0) positivesNum++;
+              if (el > 100) over100++;
+            });
+            return `
+            Кількість парних: ${doubleNum};<br><br>
+            Кількість додатних: ${positivesNum};<br><br>
+            Кількість більших за 100: ${over100};`;
+          }
+
+          //вивід
+          document.write(`
+          Введенні числа: <br><br>
+          ${propertiesOfThreeNumbers(userNumbersArray)}`);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
