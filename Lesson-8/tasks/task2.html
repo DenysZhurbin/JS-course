@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left isDisabled" href="task2.html"
+          >Задача 2.</a
+        >
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+        <a class="link link--upper-left" href="task8.html">Задача 8.</a>
+        <a class="link link--upper-left" href="task9.html">Задача 9.</a>
+        <a class="link link--upper-left" href="task10.html">Задача 10.</a>
+      </div>
+      <h1 class="title">Задача №2.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Дано масив, який зберігає кількість відвідувачів магазину протягом
+          тижня. Вивести на екран:
+        </p>
+
+        <script>
+          // вхідні данні
+          const inputArray = customerArray();
+
+          function customerArray() {
+            const array = [];
+            for (let i = 0; i < 7; i++) {
+              array.push(
+                parseInt(
+                  prompt(
+                    `Введіть кількість відвідувачів магазину за кожний день тижня, день ${
+                      i + 1
+                    }:`
+                  )
+                )
+              );
+            }
+            return array;
+          }
+
+          // розрахунок данних
+          function customerAttendanceLessThan20(array) {
+            let dayNumber = [];
+            for (let i = 0; i < array.length; i++) {
+              const element = array[i];
+              if (element < 20) dayNumber.push(i + 1);
+            }
+            return dayNumber;
+          }
+
+          function customerMinAttendance(array) {
+            let dayNumber = [];
+            let min = array[0];
+            for (let i = 0; i < array.length; i++) {
+              const element = array[i];
+              if (element < min || element === 0) {
+                dayNumber.push(i + 1);
+                min = element;
+              }
+            }
+            return dayNumber;
+          }
+
+          function customerMaxAttendance(array) {
+            let dayNumber = [];
+            let max = array[0];
+            for (let i = 0; i < array.length; i++) {
+              const element = array[i];
+              if (element > max || !element === 0) {
+                dayNumber.push(i + 1);
+                max = element;
+              }
+            }
+            return dayNumber;
+          }
+
+          function workingDaysCustomerAttendance(array) {
+            let peopleTotalNumber = 0;
+            for (let i = 0; i < 5; i++) {
+              const element = array[i];
+              peopleTotalNumber += element;
+            }
+            return peopleTotalNumber;
+          }
+
+          function weekendDaysCustomerAttendance(array) {
+            let peopleTotalNumber = 0;
+            for (let i = 0; i < array.length; i++) {
+              const element = array[i];
+              if (i >= 5) peopleTotalNumber += element;
+            }
+            return peopleTotalNumber;
+          }
+
+          // вивід
+          document.write(`
+          Номери днів, протягом яких кількість відвідувачів була меншою за 20: <b>${customerAttendanceLessThan20(
+            inputArray
+          )}</b>; <br>
+          Номери днів, коли кількість відвідувачів була мінімальною: <b>${customerMinAttendance(
+            inputArray
+          )}</b>; <br>
+          Номери днів, коли кількість відвідувачів була максимальною: <b>${customerMaxAttendance(
+            inputArray
+          )}</b>; <br>
+          Загальна кількість клієнтів у робочі дні: <b>${workingDaysCustomerAttendance(
+            inputArray
+          )}</b>; <br>
+          Загальна кількість клієнтів у вихідні: <b>${weekendDaysCustomerAttendance(
+            inputArray
+          )}</b>; <br>
+          `);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

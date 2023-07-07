@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left isDisabled" href="task6.html"
+          >Задача 6.</a
+        >
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+        <a class="link link--upper-left" href="task8.html">Задача 8.</a>
+        <a class="link link--upper-left" href="task9.html">Задача 9.</a>
+        <a class="link link--upper-left" href="task10.html">Задача 10.</a>
+      </div>
+      <h1 class="title">Задача №6.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Дано послідовність цін товарів та назв (у окремих масивах). Вивести на
+          екран ті, які може собі дозволити користувач (кількість грошей
+          задається).
+        </p>
+
+        <script>
+          // вхідні данні
+          const goodsArr = [
+            "ковзанка",
+            "капелюх",
+            "вишиванка",
+            "окуляри",
+            "качка для ванної",
+            "холодильник",
+          ];
+          const pricesArr = [120, 30, 999, 300, 15, 12000];
+          const userMoney = parseFloat(prompt("Скільки у Вас грошей?"));
+
+          // розрахунок данних
+          function availableGoods(arrayOfPrice, arrayOfGoods) {
+            let availableGoodsArr = [];
+
+            for (let i = 0; i < arrayOfPrice.length; i++) {
+              const element = arrayOfPrice[i];
+              if (element <= userMoney)
+                availableGoodsArr.push(" " + arrayOfGoods[i]);
+            }
+            return availableGoodsArr;
+          }
+
+          document.write(
+            `Вам достумні такі товари: <b>${availableGoods(
+              pricesArr,
+              goodsArr
+            )}</b>.`
+          );
+          // вивід
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

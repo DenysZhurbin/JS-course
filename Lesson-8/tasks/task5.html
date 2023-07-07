@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left isDisabled" href="task5.html"
+          >Задача 5.</a
+        >
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+        <a class="link link--upper-left" href="task8.html">Задача 8.</a>
+        <a class="link link--upper-left" href="task9.html">Задача 9.</a>
+        <a class="link link--upper-left" href="task10.html">Задача 10.</a>
+      </div>
+      <h1 class="title">Задача №5.</h1>
+      <div class="wrapper__inner">
+        <p>Дано послідовність оцінок учня. Підрахувати кількість:</p>
+
+        <script>
+          // вхідні данні
+          const studentGrades = [3, 4, 2, 5, 3, 4, 4, 3, 5, 2];
+
+          // розрахунок данних
+          function getNumberOfTwos(array) {
+            let counter = 0;
+            for (let i = 0; i < array.length; i++) {
+              const element = array[i];
+              if (element === 2) counter++;
+            }
+            return counter;
+          }
+
+          function getGoodMarks(array) {
+            let counter = 0;
+            for (let i = 0; i < array.length; i++) {
+              const element = array[i];
+              if (element >= 4) counter++;
+            }
+            return counter;
+          }
+
+          function getLowerMarks(array) {
+            let counter = 0;
+            for (let i = 0; i < array.length; i++) {
+              const element = array[i];
+              if (element < 3) counter++;
+            }
+            return counter;
+          }
+
+          // вивід
+          document.write(`
+          двійок: <b>${getNumberOfTwos(studentGrades)}</b>; <br>
+          кількість хороших оцінок (добре, відмінно): <b>${getGoodMarks(
+            studentGrades
+          )}</b>; <br>
+          кількість оцінок, які нижче середнього: <b>${getLowerMarks(
+            studentGrades
+          )}</b>; <br>
+          `);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
