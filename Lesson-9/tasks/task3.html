@@ -27,34 +27,25 @@
       <h1 class="title">Задача №3.</h1>
       <div class="wrapper__inner">
         <p>
-          Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я
-          «Іван».
+          Користувач вводить кількість елементів (вісім). Створити масив, у
+          якому перші 5 елементів заповнені 1-цями, а інші до кінця масиву
+          заповнені 7-ками.
         </p>
 
         <script>
           // вхідні данні
-          const inputArray = studentArray();
-
-          function studentArray() {
-            const array = [];
-            for (let i = 0; i < 7; i++) {
-              array.push(prompt(`Введіть ім'я: ${i + 1}:`).toUpperCase());
-            }
-            return array;
-          }
+          const userNumber = parseInt(
+            prompt("Введіть кількість елементів для масиву:", 0)
+          );
 
           // розрахунок данних
-          function nameMatches(array) {
-            let name = 0;
-            for (let i = 0; i < array.length; i++) {
-              const element = array[i];
-              if (element === "ІВАН") name++;
-            }
-            return name;
+          function getFilledArray(numberOfElements) {
+            let array = new Array(numberOfElements).fill(1);
+            return array.fill(7, 5);
           }
 
           // вивід
-          document.write(`Результат: <b>${nameMatches(inputArray)}</b>`);
+          document.write(`Вивід: <b>${getFilledArray(userNumber)}</b>`);
         </script>
       </div>
     </div>

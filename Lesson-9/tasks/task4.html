@@ -13,10 +13,10 @@
         <a class="link link--upper-left" href="../../index.html">На головну</a>
         <a class="link link--upper-left" href="task1.html">Задача 1.</a>
         <a class="link link--upper-left" href="task2.html">Задача 2.</a>
-        <a class="link link--upper-left isDisabled" href="task3.html"
-          >Задача 3.</a
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left isDisabled" href="task4.html"
+          >Задача 4.</a
         >
-        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
         <a class="link link--upper-left" href="task5.html">Задача 5.</a>
         <a class="link link--upper-left" href="task6.html">Задача 6.</a>
         <a class="link link--upper-left" href="task7.html">Задача 7.</a>
@@ -24,37 +24,40 @@
         <a class="link link--upper-left" href="task9.html">Задача 9.</a>
         <a class="link link--upper-left" href="task10.html">Задача 10.</a>
       </div>
-      <h1 class="title">Задача №3.</h1>
+      <h1 class="title">Задача №4.</h1>
       <div class="wrapper__inner">
         <p>
-          Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я
-          «Іван».
+          Дано масив елементів (сім значень). Вивести на екран елементи, що
+          більші за 100:
         </p>
 
         <script>
           // вхідні данні
-          const inputArray = studentArray();
+          const numArr = getUserNumArray();
 
-          function studentArray() {
+          function getUserNumArray() {
             const array = [];
             for (let i = 0; i < 7; i++) {
-              array.push(prompt(`Введіть ім'я: ${i + 1}:`).toUpperCase());
+              array.push(parseInt(prompt(`Введіть число: ${i + 1}:`)));
             }
             return array;
           }
 
           // розрахунок данних
-          function nameMatches(array) {
-            let name = 0;
-            for (let i = 0; i < array.length; i++) {
-              const element = array[i];
-              if (element === "ІВАН") name++;
+          function getNumOver100(array) {
+            let numbers = [];
+            for (const number of numArr) {
+              if (number > 100) numbers.push(" " + number);
             }
-            return name;
+            if (numbers != 0) {
+              return numbers;
+            } else {
+              return 0;
+            }
           }
 
           // вивід
-          document.write(`Результат: <b>${nameMatches(inputArray)}</b>`);
+          document.write(`Вивід: <b>${getNumOver100(numArr)}</b>`);
         </script>
       </div>
     </div>

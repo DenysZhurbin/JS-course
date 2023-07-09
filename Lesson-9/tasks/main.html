@@ -13,9 +13,7 @@
         <a class="link link--upper-left" href="../../index.html">На головну</a>
         <a class="link link--upper-left" href="task1.html">Задача 1.</a>
         <a class="link link--upper-left" href="task2.html">Задача 2.</a>
-        <a class="link link--upper-left isDisabled" href="task3.html"
-          >Задача 3.</a
-        >
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
         <a class="link link--upper-left" href="task4.html">Задача 4.</a>
         <a class="link link--upper-left" href="task5.html">Задача 5.</a>
         <a class="link link--upper-left" href="task6.html">Задача 6.</a>
@@ -24,39 +22,7 @@
         <a class="link link--upper-left" href="task9.html">Задача 9.</a>
         <a class="link link--upper-left" href="task10.html">Задача 10.</a>
       </div>
-      <h1 class="title">Задача №3.</h1>
-      <div class="wrapper__inner">
-        <p>
-          Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я
-          «Іван».
-        </p>
-
-        <script>
-          // вхідні данні
-          const inputArray = studentArray();
-
-          function studentArray() {
-            const array = [];
-            for (let i = 0; i < 7; i++) {
-              array.push(prompt(`Введіть ім'я: ${i + 1}:`).toUpperCase());
-            }
-            return array;
-          }
-
-          // розрахунок данних
-          function nameMatches(array) {
-            let name = 0;
-            for (let i = 0; i < array.length; i++) {
-              const element = array[i];
-              if (element === "ІВАН") name++;
-            }
-            return name;
-          }
-
-          // вивід
-          document.write(`Результат: <b>${nameMatches(inputArray)}</b>`);
-        </script>
-      </div>
+      <h1 class="title">Задачі</h1>
     </div>
   </body>
 </html>

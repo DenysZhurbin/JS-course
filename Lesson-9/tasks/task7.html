@@ -13,48 +13,48 @@
         <a class="link link--upper-left" href="../../index.html">На головну</a>
         <a class="link link--upper-left" href="task1.html">Задача 1.</a>
         <a class="link link--upper-left" href="task2.html">Задача 2.</a>
-        <a class="link link--upper-left isDisabled" href="task3.html"
-          >Задача 3.</a
-        >
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
         <a class="link link--upper-left" href="task4.html">Задача 4.</a>
         <a class="link link--upper-left" href="task5.html">Задача 5.</a>
         <a class="link link--upper-left" href="task6.html">Задача 6.</a>
-        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+        <a class="link link--upper-left isDisabled" href="task7.html"
+          >Задача 7.</a
+        >
         <a class="link link--upper-left" href="task8.html">Задача 8.</a>
         <a class="link link--upper-left" href="task9.html">Задача 9.</a>
         <a class="link link--upper-left" href="task10.html">Задача 10.</a>
       </div>
-      <h1 class="title">Задача №3.</h1>
+      <h1 class="title">Задача №7.</h1>
       <div class="wrapper__inner">
         <p>
-          Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я
-          «Іван».
+          Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші
+          за 1000 грн. дати 30% знижки.
         </p>
 
         <script>
           // вхідні данні
-          const inputArray = studentArray();
+          const numArr = getUserNumArray();
 
-          function studentArray() {
+          function getUserNumArray() {
             const array = [];
-            for (let i = 0; i < 7; i++) {
-              array.push(prompt(`Введіть ім'я: ${i + 1}:`).toUpperCase());
+            for (let i = 0; i < 5; i++) {
+              array.push(parseFloat(prompt(`Введіть число: ${i + 1}:`)));
             }
             return array;
           }
 
           // розрахунок данних
-          function nameMatches(array) {
-            let name = 0;
+          function getDiscountPrice(array) {
             for (let i = 0; i < array.length; i++) {
-              const element = array[i];
-              if (element === "ІВАН") name++;
+              if (array[i] > 1000) {
+                array[i] = Math.round((array[i] / 100) * 70);
+              }
             }
-            return name;
+            return array;
           }
 
           // вивід
-          document.write(`Результат: <b>${nameMatches(inputArray)}</b>`);
+          document.write(`Вивід: <b>${getDiscountPrice(numArr)}</b>`);
         </script>
       </div>
     </div>
