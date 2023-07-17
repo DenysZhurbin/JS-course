@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left isDisabled" href="task1.html"
+          >Завдання 10.</a
+        >
+      </div>
+      <h1 class="title">Задача №1-13.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Задача. Дано історію цін на цінні папери за деякий період (згенерувати
+          від 1 до 10000)<br />
+          1) Сформувати новий масив, у якому є тільки ті, що більші за 1000
+          грн.<br />
+          2) Сформувати новий масив, у якому є номери тільки тих, що більші за
+          1000 грн.<br />
+          3) Сформувати список з тих цін, які більші за попереднє значення<br />
+          4) Сформувати новий масив, що міститиме значення цін у відсотках
+          стосовно максимального<br />
+          5) Підрахувати кількість змін цін<br />
+          6) Визначити, чи є ціна, що менше 1000<br />
+          7) Визначати, чи усі ціни більше за 1000<br />
+          8) Підрахувати кількість цін, що більше за 1000<br />
+          9) Підрахувати суму цін, що більше за 1000<br />
+          10) Знайти першу ціну, що більше за 1000<br />
+          11) Знайти індекс першої ціни, що більше за 1000<br />
+          12) Знайти останню ціну, що більше за 1000<br />
+          13) Знайти індекс останньої ціни, що більше за 1000<br />
+        </p>
+
+        <script>
+          // вхідні данні
+          const daysNum = 30;
+          const conditionAmount = 1000;
+          const prices = new Array(daysNum)
+            .fill(0)
+            .map(() => 1 + Math.floor(Math.random() * 10000));
+          let sum = 0;
+
+          document.write(
+            `<span style="overflow-wrap: break-word;">Почавтковий масив:<br>${prices}</span><br><br>`
+          );
+
+          // розрахунок данних та вивід
+          // вправа №1
+          const over1000 = prices.filter((el, i) => {
+            if (el > conditionAmount) return el;
+          });
+
+          document.write(
+            `<span style="overflow-wrap: break-word;">вправа №1:<br>${over1000}</span><br><br>`
+          );
+
+          // вправа №2
+          const indexOver1000 = [];
+          prices.filter((el, i) => {
+            if (el > conditionAmount) indexOver1000.push(i);
+          });
+
+          document.write(
+            `<span style="overflow-wrap: break-word;">вправа №2:<br>${indexOver1000}</span><br><br>`
+          );
+
+          // вправа №3
+          const overPrevPrice = prices.filter((el, i, mainArr) => {
+            if (mainArr[i - 1] < el) return el;
+          });
+
+          document.write(
+            `<span style="overflow-wrap: break-word;">вправа №3:<br>${overPrevPrice}</span><br><br>`
+          );
+
+          // вправа №4
+          const maxValue = Math.max(...prices);
+          const percentOfMaxPrice = prices.map((el) => {
+            el *= 100 / maxValue;
+            return el.toFixed(2) + "%";
+          });
+
+          document.write(
+            `<span style="overflow-wrap: break-word;">вправа №4:<br>Максимальне значення:${maxValue}<br>${percentOfMaxPrice}</span><br><br>`
+          );
+
+          // вправа №5
+          const allPriceChanges = prices.length;
+
+          document.write(
+            `<span style="overflow-wrap: break-word;">вправа №5:<br>${allPriceChanges}</span><br><br>`
+          );
+
+          // вправа №6
+          const lessThan1000 = prices.some((el) => el < conditionAmount);
+
+          if (lessThan1000) document.write("вправа №6 <br>Tak<br><br>");
+          else document.write("вправа №6 <br>Ni<br><br>");
+
+          // вправа №7
+          const allOver1000 = prices.every((el) => el > conditionAmount);
+
+          if (allOver1000) document.write("вправа №7 <br>Tak<br><br>");
+          else document.write("вправа №7 <br>Ni<br><br>");
+
+          // вправа №8
+          const howManyOver1000 = prices.map((el) => {
+            if (el > conditionAmount) return sum++;
+          });
+
+          document.write(
+            `<span style="overflow-wrap: break-word;">вправа №8:<br>${sum}</span><br><br>`
+          );
+
+          // вправа №9
+          sum = 0;
+          const sumOver1000 = prices.map((el) => {
+            if (el > conditionAmount) return (sum += el);
+          });
+
+          document.write(
+            `<span style="overflow-wrap: break-word;">вправа №9:<br>${sum}</span><br><br>`
+          );
+
+          // вправа №10
+          const firstOver1000 = prices.find((el) => el > conditionAmount);
+
+          document.write(
+            `<span style="overflow-wrap: break-word;">вправа №10:<br>${firstOver1000}</span><br><br>`
+          );
+
+          // вправа №11
+          const firstIndexOver1000 = prices.findIndex(
+            (el) => el > conditionAmount
+          );
+
+          document.write(
+            `<span style="overflow-wrap: break-word;">вправа №11:<br>${firstIndexOver1000}</span><br><br>`
+          );
+
+          // вправа №12
+          const lastIndexOver1000 = prices.findLastIndex(
+            (el) => el > conditionAmount
+          );
+
+          document.write(
+            `<span style="overflow-wrap: break-word;">вправа №12:<br>${prices[lastIndexOver1000]}</span><br><br>`
+          );
+
+          // вправа №13
+          document.write(
+            `<span style="overflow-wrap: break-word;">вправа №13:<br>${lastIndexOver1000}</span><br><br>`
+          );
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
