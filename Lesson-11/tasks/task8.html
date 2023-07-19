@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+        <a class="link link--upper-left isDisabled" href="task8.html"
+          >Задача 8.</a
+        >
+        <a class="link link--upper-left" href="task9.html">Задача 9.</a>
+        <a class="link link--upper-left" href="task10.html">Задача 10.</a>
+      </div>
+      <h1 class="title">Задача №8.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто
+          при порівнянні двох рядків треба знайти суму кожного з рядків і
+          порівнювати ці суми, на основі цих сум буде зрозуміло, який з
+          елементів повинен іти раніше).
+        </p>
+
+        <script>
+          // вхідні данні
+          const storesIncomesWeekly = [
+            [48796, 4876, 1469, 6488, 1664, 9870, 26431],
+            [6546, 6412, 1564, 13144, 13464, 4676, 8795],
+            [4687, 2646, 1674, 4698, 1365, 4587, 6987],
+            [38796, 1648, 4998, 24698, 46487, 46896, 1686],
+          ];
+
+          // функція знаходження суми рядка
+          function getInnerArraySumRow(arr) {
+            let rowSum = arr.reduce(
+              (accumulator, value) => accumulator + value,
+              0
+            );
+            return rowSum;
+          }
+
+          // застосовуємо сорт до цілювого масиву
+          storesIncomesWeekly.sort(
+            (a, b) => getInnerArraySumRow(a) - getInnerArraySumRow(b)
+          );
+
+          // вивід
+          console.log(storesIncomesWeekly);
+
+          // -------чернетка, для себе--------
+          // function getInnerArraySumRow(arr) {
+          //   let result = [];
+          //   arr.forEach((rowValues, i, currentArr) => {
+          //     let rowSum = rowValues.reduce(
+          //       (accumulator, value) => accumulator + value,
+          //       0
+          //     );
+          //     console.log(rowSum);
+          //     result.push(rowSum);
+          //     console.log(rowSum);
+          //   });
+          //   return result;
+          // }
+
+          document.write(
+            `<span style="overflow-wrap: break-word;">${storesIncomesWeekly}</span>`
+          );
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

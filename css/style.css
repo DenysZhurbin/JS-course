@@ -3,6 +3,8 @@ li {
 }
 
 ul {
+  display: inline-block;
+  vertical-align: top;
   margin-left: 0;
   padding-left: 0;
 }
