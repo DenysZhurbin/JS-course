@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left isDisabled" href="task4.html"
+          >Задача 4.</a
+        >
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+      </div>
+      <h1 class="title">Задача №4.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Для розглянутих методів сортування спробувати вивести етапи сортування
+          шляхом виведення відповідних таблиць за зразком. Тобто кожного разу
+          після обміну елементів вивести поточний стан масиву на екран.
+        </p>
+
+        <script>
+          // вхідні данні
+          const numArr = getUserNumArray();
+
+          // функція створення массиву
+          function getUserNumArray() {
+            const array = [];
+            for (let i = 0; i < 30; i++) {
+              array.push(randomIntFromInterval(0, 100));
+            }
+            return array;
+          }
+
+          // функція створення випадкового числа
+          function randomIntFromInterval(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+          }
+
+          // розрахунок данних
+          // ---бульбашковий алгоритм упорадкування---
+          function bubbleSortAlgorithm(array) {
+            let changed;
+            let resultArray = [...array];
+            let iterationArray = [];
+            do {
+              changed = false;
+              for (let i = 1; i < resultArray.length; i++) {
+                if (resultArray[i - 1] > resultArray[i]) {
+                  let tmp = resultArray[i - 1];
+                  resultArray[i - 1] = resultArray[i];
+                  resultArray[i] = tmp;
+                  changed = true;
+                  iterationArray.push(resultArray + "<br>");
+                }
+              }
+            } while (changed);
+            return iterationArray;
+          }
+
+          // ---алгоритм упорядкування змішуванням---
+          function cocktailSortAlgorithm(array) {
+            let leftIndex = 0;
+            let resultArray = [...array];
+            let rightIndex = resultArray.length - 1;
+            let iterationArray = [];
+
+            while (leftIndex < rightIndex) {
+              for (let i = leftIndex; i < rightIndex; i++) {
+                if (resultArray[i] > resultArray[i + 1]) {
+                  let tmp = resultArray[i + 1];
+                  resultArray[i + 1] = resultArray[i];
+                  resultArray[i] = tmp;
+                  iterationArray.push(resultArray + "<br>");
+                }
+              }
+              rightIndex--;
+
+              for (let i = rightIndex; i > leftIndex; i--) {
+                if (resultArray[i] < resultArray[i - 1]) {
+                  let tmp = resultArray[i - 1];
+                  resultArray[i - 1] = resultArray[i];
+                  resultArray[i] = tmp;
+                  iterationArray.push(resultArray + "<br>");
+                }
+              }
+              leftIndex++;
+            }
+            return iterationArray;
+          }
+
+          // ---алгоритм уморядкування змішуванням---
+          function insertionSortAlgorithm(array) {
+            let currentElement, i;
+            let resultArray = [...array];
+            let iterationArray = [];
+
+            for (let k = 1; k < resultArray.length; k++) {
+              currentElement = resultArray[k];
+              i = k - 1;
+              while (i >= 0 && resultArray[i] > currentElement) {
+                resultArray[i + 1] = resultArray[i];
+                i = i - 1;
+                iterationArray.push(resultArray + "<br>");
+              }
+              resultArray[i + 1] = currentElement;
+            }
+            return iterationArray;
+          }
+
+          // вивід
+          document.write(`<span style="overflow-wrap: break-word;">
+            <b>Початкові значення масиву:</b> ${numArr}<br><br>
+          <b>Бульбашковий алгоритм упорадкування, по ітераційно:</b> <br>${bubbleSortAlgorithm(
+            numArr
+          )}<br>
+          <b>Аглоритм упорадкування змішуванням, по ітераційно:</b> <br>${cocktailSortAlgorithm(
+            numArr
+          )}<br>
+          <b>Аглоритм упорадкування включенням, по ітераційно:</b> <br>${insertionSortAlgorithm(
+            numArr
+          )}<br>
+          </span>`);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

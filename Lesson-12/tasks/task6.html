@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left isDisabled" href="task6.html"
+          >Задача 6.</a
+        >
+      </div>
+      <h1 class="title">Задача №6.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук
+          визначити, чи є у масиві ім’я довжиною 5 символів і під яким індексом.
+        </p>
+
+        <script>
+          // вхідні данні
+          let names = [
+            "Anna",
+            "Valentyna",
+            "Aleventina",
+            "Juliana",
+            "Alex",
+            "Slavia",
+            "Olena",
+            "Michael",
+            "Olga",
+            "Victoria",
+          ];
+
+          // розрахунок данних
+          names.sort((a, b) => {
+            a = a.length;
+            b = b.length;
+            return a - b;
+          });
+
+          function getIndexBinarySearch(array, searchElement) {
+            let start = 0;
+            let end = array.length - 1;
+            while (start <= end) {
+              const middle = Math.floor((start + end) / 2);
+              console.log(array[middle].length);
+              if (array[middle].length === searchElement) return middle;
+              if (array[middle].length < searchElement) start = middle + 1;
+              if (array[middle].length > searchElement) end = middle - 1;
+            }
+            return -1;
+          }
+
+          const result = getIndexBinarySearch(names, 5);
+
+          // вивід
+          document.write(`
+          Початкові значення масиву: ${
+            result !== -1 ? `Так є під індексом ${result}` : "Немає"
+          }<br>
+          `);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

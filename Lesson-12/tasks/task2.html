@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left isDisabled" href="task2.html"
+          >Задача 2.</a
+        >
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+      </div>
+      <h1 class="title">Задача №2.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів
+          під час сортування змішуванням.
+        </p>
+
+        <script>
+          // вхідні данні
+          let numArr = getUserNumArray();
+          let counter = 0;
+
+          // функція створення массиву
+          function getUserNumArray() {
+            const array = [];
+            for (let i = 0; i < 30; i++) {
+              array.push(randomIntFromInterval(0, 100));
+            }
+            return array;
+          }
+
+          // функція створення випадкового числа
+          function randomIntFromInterval(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+          }
+
+          // розрахунок данних
+          function cocktailSortAlgorithm(array) {
+            let leftIndex = 0;
+            let rightIndex = array.length - 1;
+
+            while (leftIndex < rightIndex) {
+              for (let i = leftIndex; i < rightIndex; i++) {
+                if (array[i] > array[i + 1]) {
+                  let tmp = array[i + 1];
+                  array[i + 1] = array[i];
+                  array[i] = tmp;
+                  counter++;
+                }
+              }
+              rightIndex--;
+
+              for (let i = rightIndex; i > leftIndex; i--) {
+                if (array[i] < array[i - 1]) {
+                  let tmp = array[i - 1];
+                  array[i - 1] = array[i];
+                  array[i] = tmp;
+                  counter++;
+                }
+              }
+              leftIndex++;
+            }
+            return array;
+          }
+
+          // вивід
+          document.write(`
+          Початкові значення масиву: ${numArr}<br>
+          Значення після упорядкування: ${cocktailSortAlgorithm(numArr)}<br>
+          Кількість обмінів: ${counter}<br>
+          `);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
