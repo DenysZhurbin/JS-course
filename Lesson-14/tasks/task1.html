@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left isDisabled" href="task1.html"
+          >Задача 1.</a
+        >
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+      </div>
+      <h1 class="title">Задача №1.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Описати масив об’єктів – сайтів розроблених компанією з такими
+          властивостями <br />
+          ----- Властивості ------ <br />
+          -назва компанії на час розробки (назву періодично змінюють) <br />
+          -власник компанії <br />
+          -споснсори (масив спонсорів) <br />
+          <span style="padding-left: 26px">* прізвище спонсора</span> <br />
+          <span style="padding-left: 26px">* ім’я спонсора</span> <br />
+          <span style="padding-left: 26px">* сума вкладень спонсора</span><br />
+          -рік випуску <br />
+          -вартість сайту <br /><br />
+          Знайти: <br />
+          1) загальну вартість усіх сайтів <br />
+          2) кількість сайтів, що було зроблено між 2000 та 2009 рр. <br />
+          3) кількість сайтів, де сума спонсорських вкладень була більшою за
+          100000<br />
+          4) створити загальний список усіх спонсорів (поки можуть
+          повторюватись, просто зібрати усі у масив) <br />
+          5) знайти рік, коли прибуток був найбільшим <br />
+          6) упорядкувати список за спаданням прибутку<br />
+          7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з
+          вартість до 10000 і більше 10000<br />
+        </p>
+
+        <script>
+          // вхідні данні
+          let siteList = [
+            {
+              companyName: "company1",
+              owner: "Олександр Подерв’янський",
+              sponsors: [
+                {
+                  firstName: "Сергій",
+                  lastName: "Ліпко",
+                  investmentAmount: 2500,
+                },
+              ],
+              madeYear: 2008,
+              cost: 9000,
+            },
+            {
+              companyName: "Company2",
+              owner: "Віталій Гордієнко",
+              sponsors: [
+                {
+                  firstName: "Олексій",
+                  lastName: "Дурнев",
+                  investmentAmount: 70000,
+                },
+                {
+                  firstName: "Настя",
+                  lastName: "Зухвала",
+                  investmentAmount: 35000,
+                },
+              ],
+              madeYear: 2005,
+              cost: 280000,
+            },
+            {
+              companyName: "company3",
+              owner: "Свят Загайкевич",
+              sponsors: [
+                {
+                  firstName: "Антон",
+                  lastName: "Тимошенко",
+                  investmentAmount: 9000,
+                },
+              ],
+              madeYear: 2019,
+              cost: 48000,
+            },
+            {
+              companyName: "company4",
+              owner: "Василь байдак",
+              sponsors: [
+                {
+                  firstName: "Дмитро",
+                  lastName: "Білоус",
+                  investmentAmount: 125000,
+                },
+              ],
+              madeYear: 2006,
+              cost: 265000,
+            },
+          ];
+
+          // розрахунок данних
+          // 1)
+          function getTotalCost(obj) {
+            return obj.reduce((total, arr) => (total += arr.cost), 0);
+          }
+
+          // 2)
+          function getYearsRange(obj, startYear, endYear) {
+            return obj.reduce((total, arr) => {
+              if (arr.madeYear >= startYear && arr.madeYear <= endYear) ++total;
+              return total;
+            }, 0);
+          }
+
+          // 3)
+          function getOverInvestmentAmount(obj, overAmount) {
+            let sum = 0;
+            return obj.reduce((total, arr) => {
+              arr.sponsors.map((sponsor) => {
+                return (sum += sponsor.investmentAmount);
+              });
+              if (sum > overAmount) total++;
+              sum = 0;
+              return total;
+            }, 0);
+          }
+
+          // 4)
+          function getInvestmentList(obj) {
+            return obj.reduce((total, arr) => {
+              arr.sponsors.map((sponsor) => {
+                total.push(sponsor.firstName);
+                total.push(sponsor.lastName);
+              });
+              return total;
+            }, []);
+          }
+
+          // 5)
+          function getMaximumProfitValue(obj) {
+            let max = 0;
+            let year = 0;
+            obj.map((arr) => {
+              if (max < arr.cost) {
+                max = arr.cost;
+                year = arr.madeYear;
+              }
+            });
+            return year;
+          }
+
+          // 6)
+          siteList.sort((a, b) => a.cost - b.cost);
+          console.log(siteList);
+
+          // 7)
+          function splitList(obj) {
+            let before10000cost = [];
+            let over10000cost = [];
+            for (const site of obj) {
+              if (site.cost > 10000) over10000cost.push(site);
+              else before10000cost.push(site);
+            }
+            console.log("1 ", before10000cost);
+            console.log("2 ", over10000cost);
+            return [before10000cost, over10000cost];
+          }
+
+          splitList(siteList);
+
+          // вивід
+          document.write(`
+          Результат: <br>
+          1) ${getTotalCost(siteList)}<br>
+          2) ${getYearsRange(siteList, 2000, 2009)}<br>
+          3) ${getOverInvestmentAmount(siteList, 100000)}<br>
+          4) ${getInvestmentList(siteList)}<br>
+          5) ${getMaximumProfitValue(siteList)}<br>
+          6) Вивів у консоль<br>
+          7) Вивів у консоль<br>
+          `);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left isDisabled" href="task2.html"
+          >Задача 2.</a
+        >
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+      </div>
+      <h1 class="title">Задача №2.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Розробити функцію, у яку передають об’єкт (день, місяць, рік).
+          Визначити, який буде рік через N місяців.
+        </p>
+
+        <script>
+          // вхідні данні
+          const currentDate = {
+            year: 2023,
+            month: 7,
+            day: 28,
+          };
+          const userMonths = parseInt(prompt("Введіть кількість місяців:"));
+
+          // розрахунок данних
+          function calculateDate(obj, months, yearCounter = 0) {
+            let runMonthIterator = setMonthIterator(obj.month);
+
+            for (let i = 0; i < months; i++) {
+              yearCounter = runMonthIterator();
+            }
+            return obj.year + yearCounter;
+          }
+
+          function setMonthIterator(
+            monthNum,
+            min = 1,
+            max = 12,
+            iterationStep = 0
+          ) {
+            function getNextMonth() {
+              if (monthNum === max) {
+                monthNum = 1;
+                ++iterationStep;
+              } else {
+                ++monthNum;
+              }
+              return iterationStep;
+            }
+            return getNextMonth;
+          }
+
+          // вивід
+          document.write(
+            `Результат це буде: ${calculateDate(currentDate, userMonths)} рік.`
+          );
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

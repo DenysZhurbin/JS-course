@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left isDisabled" href="task3.html"
+          >Задача 3.</a
+        >
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+      </div>
+      <h1 class="title">Задача №3.</h1>
+      <div class="wrapper__inner">
+        <p>
+          З використанням замикань розробити ітератор, тобто функцію, що буде
+          поступово за окремими викликами видавати по одне значення від заданого
+          мінімального до заданого максимального. Якщо значення досягне
+          максимального, то наступним буде мінімальне значення. З використанням
+          цієї функції реалізувати перебір номерів місяців.
+        </p>
+
+        <script>
+          // вхідні данні
+          const userStartNumber = parseInt(
+            prompt("З якого місяця починати рахувати?")
+          );
+          const userEndNumber = parseInt(prompt("Загальна кількість місяців?"));
+
+          // розрахунок данних вивід
+          function setMonthIterator(monthNum, min = 1, max = 12) {
+            function getNextMonth() {
+              monthNum === max ? (monthNum = 1) : ++monthNum;
+              return monthNum;
+            }
+            return getNextMonth;
+          }
+
+          let runMonthIterator = setMonthIterator(userStartNumber);
+
+          document.write("Результат:<br>");
+
+          for (let i = 0; i < userEndNumber; i++) {
+            document.write(`${runMonthIterator()}<br>`);
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

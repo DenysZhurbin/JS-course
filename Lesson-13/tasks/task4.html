@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left isDisabled" href="task4.html"
+          >Задача 4.</a
+        >
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+      </div>
+      <h1 class="title">Задача №4.</h1>
+      <div class="wrapper__inner">
+        <p>
+          З використанням замикань розробити ітератор, тобто функцію, що буде
+          поступово за окремими викликами видавати по одну букву наперед
+          заданого слова. З використанням нього розробити гру «Прекладач».
+          Виводимо для користувача опис цього слова і по одну букву користувач
+          вводить переклад цього слова. Підрахувати кількість вгаданих букв.
+        </p>
+
+        <script>
+          // вхідні данні
+          const hiddenWord = "pizza";
+
+          // розрахунок данних вивід
+          // ітератор замикання
+          function setLetterIterator(word) {
+            let letterCount = -1;
+            function getNextLetter() {
+              letterCount === word.length ? (letterCount = 0) : letterCount++;
+              return word[letterCount];
+            }
+            return getNextLetter;
+          }
+
+          // функція взаємодії з користувачем
+          function runGame(answer) {
+            alert("Вгадайте слово англійською, це продукт круглої форми.");
+            let runLetterIterator = setLetterIterator(answer);
+            let counter = 0;
+            let wordLength = answer.length;
+            for (let i = 0; i < wordLength; i++) {
+              if (prompt("Введіть літеру") === runLetterIterator()) counter++;
+              if (counter === wordLength)
+                alert(`"Вітаємо Ви вгадали!" це слово ${answer}`);
+            }
+            if (counter < wordLength)
+              alert(
+                `Нажаль ви не вгадали. Кількисть вгаданих літер ${counter}`
+              );
+            document.write(
+              `Кількість вгаданих букв: ${counter}<br>Правильна відповідь: ${answer}`
+            );
+          }
+
+          // запуск
+          runGame(hiddenWord);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
