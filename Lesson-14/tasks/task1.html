@@ -166,7 +166,8 @@
             let before10000cost = [];
             let over10000cost = [];
             for (const site of obj) {
-              if (site.cost > 10000) over10000cost.push(site);
+              if (site.cost > 10000)
+                over10000cost.push(site); //треба копії, використаті JSON
               else before10000cost.push(site);
             }
             console.log("1 ", before10000cost);

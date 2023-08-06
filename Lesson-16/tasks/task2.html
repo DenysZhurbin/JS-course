@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left isDisabled" href="task2.html"
+          >Задача 2.</a
+        >
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+      </div>
+      <h1 class="title">Задача №2.</h1>
+      <div class="wrapper__inner">
+        <p></p>
+
+        <script>
+          function getDaysInMonth(month, year) {
+            return new Date(year, month + 1, 0).getDate();
+          }
+
+          // Масив з назвами місяців
+          const months = [
+            "Січень",
+            "Лютий",
+            "Березень",
+            "Квітень",
+            "Травень",
+            "Червень",
+            "Липень",
+            "Серпень",
+            "Вересень",
+            "Жовтень",
+            "Листопад",
+            "Грудень",
+          ];
+
+          // Виведення таблиці з назвами місяців та кількістю днів
+          console.log("Місяць    | Кількість днів");
+          console.log("-------------------------");
+          for (let i = 0; i < months.length; i++) {
+            const monthName = months[i];
+            const daysInMonth = getDaysInMonth(i, 2023); // 2023 - рік для прикладу
+            console.log(`${monthName} | ${daysInMonth}`);
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

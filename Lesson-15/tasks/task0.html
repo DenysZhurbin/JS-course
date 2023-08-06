@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left isDisabled" href="task0.html"
+          >Задача 0.</a
+        >
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+      </div>
+      <h1 class="title">Задача №0.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у одному
+          з них є функція знаходження суми, а у іншому – функція для знаходження
+          добутку тих, які знаходяться між заданими мінімальним і максимальних
+          значенням. Використати обидва методи стосовно обидвох об’єктів
+          (використати call, apply)
+        </p>
+
+        <script>
+          let obj1 = {
+            arr: [2, 3, 5, 1, 8],
+            getSum: function () {
+              let arrLength = this.arr.length;
+              let sum = 0;
+              for (let i = 0; i < arrLength; i++) {
+                sum += this.arr[i];
+              }
+              return sum;
+            },
+            toString: function () {
+              return `obj1 = ${this.arr}<br>`;
+            },
+          };
+
+          let obj2 = {
+            arr: [3, 4, 6, 1, 7, 8],
+            productInMinMaxRange: function (minValue, maxValue) {
+              return this.arr.reduce(
+                (accumulator, num) =>
+                  num >= minValue && maxValue >= num
+                    ? accumulator * num
+                    : accumulator,
+                1
+              );
+            },
+            toString: function () {
+              return `obj2 = ${this.arr}<br>`;
+            },
+          };
+
+          document.write(`
+          ${obj1}<br>
+          ${obj2}<br>
+          Вивід ля кожного свій: <br>
+          obj1.getSum = ${obj1.getSum()}<br>
+          obj2.productInMinMaxRange = ${obj2.productInMinMaxRange(1, 6)}<br><br>
+
+          Вивід задопомогою call: <br>
+          obj2.getSum = ${obj1.getSum.call(obj2)}<br>
+          obj1.productInMinMaxRange = ${obj2.productInMinMaxRange.call(
+            obj1,
+            1,
+            6
+          )}<br><br>
+          
+          Вивід задопомогою apply: <br>
+          obj2.getSum = ${obj1.getSum.apply(obj2)}<br>
+          obj1.productInMinMaxRange = ${obj2.productInMinMaxRange.apply(
+            obj1,
+            [1, 6]
+          )}<br><br>
+          `);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

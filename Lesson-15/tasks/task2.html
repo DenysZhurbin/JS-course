@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left isDisabled" href="task2.html"
+          >Задача 2.</a
+        >
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+      </div>
+      <h1 class="title">Задача №2.</h1>
+      <div class="wrapper__inner">
+        <p>Створити об’єкт «Авто».</p>
+        <table
+          style="
+            border-collapse: collapse;
+            border-spacing: 0;
+            table-layout: fixed;
+          "
+        >
+          <tr>
+            <td style="border-collapse: collapse; border-spacing: 0">Авто</td>
+            <td style="border-collapse: collapse; border-spacing: 0"></td>
+          </tr>
+          <tr>
+            <td style="border-collapse: collapse; border-spacing: 0">
+              Поля(властивості)
+            </td>
+            <td style="border-collapse: collapse; border-spacing: 0">
+              Марка<br />
+              Розмір бака<br />
+              Кількість наявних літрів<br />
+              Кількість місць<br />
+              Кількість пасажирів<br />
+            </td>
+          </tr>
+          <tr>
+            <td style="border-collapse: collapse; border-spacing: 0">
+              Методи (дії)
+            </td>
+            <td style="border-collapse: collapse; border-spacing: 0">
+              Заправка на вказану кількість літрів<br />
+              Виведення кількості пасажирів<br />
+              Додавання пасажирів<br />
+              Висадка пасажирів<br />
+            </td>
+          </tr>
+        </table>
+
+        <script>
+          // ============= Створюємо об'єкт =============
+          let car = {
+            model: "Honda",
+            tankVolume: 60,
+            availableLiters: 50,
+            seatsNumber: 3,
+            passengersNumber: 1,
+
+            toString: function () {
+              return `<br>Кількість пасажирів: ${this.passengersNumber}`;
+            },
+
+            refuelingOfLiters: function (incomeLitres) {
+              if (this.availableLiters + incomeLitres <= this.tankVolume) {
+                this.availableLiters += incomeLitres;
+              } else {
+                throw new Error("Не влізе в бак");
+              }
+            },
+
+            boardingPassengers: function (addPassengersNumber) {
+              if (
+                this.seatsNumber - this.passengersNumber >=
+                addPassengersNumber
+              ) {
+                this.passengersNumber += addPassengersNumber;
+              } else {
+                throw new Error("Не вистачає місць");
+              }
+            },
+
+            disembarkationPassengers: function (removePassengersNumber) {
+              if (this.passengersNumber - removePassengersNumber >= 0) {
+                this.passengersNumber -= removePassengersNumber;
+              } else {
+                throw new Error(
+                  "Це значення більше ніж пасажирів у транспорті"
+                );
+              }
+            },
+          };
+
+          car.refuelingOfLiters(9);
+          document.write(car);
+          car.boardingPassengers(1);
+          car.disembarkationPassengers(2);
+          console.log(car);
+
+          // ============= Створюємо конструктор об'єкта =============
+          // function Car(
+          //   model,
+          //   tankVolume,
+          //   availableLiters,
+          //   seatsNumber,
+          //   passengersNumber
+          // ) {
+          //   this.model = model;
+          //   this.tankVolume = tankVolume;
+          //   this.availableLiters = availableLiters;
+          //   this.seatsNumber = seatsNumber;
+          //   this.passengersNumber = passengersNumber;
+          // }
+
+          // Car.prototype.refuelingOfLiters = function (incomeLitres) {
+          //   if (this.availableLiters + incomeLitres <= this.tankVolume) {
+          //     this.availableLiters += incomeLitres;
+          //   } else {
+          //     throw new Error("Не влізе в бак");
+          //   }
+          // };
+
+          // Car.prototype.printPassengersNumber = function () {
+          //   document.write(
+          //     `<br> Кількість пасажирів: ${this.passengersNumber}`
+          //   );
+          // };
+
+          // Car.prototype.boardingPassengers = function (addPassengersNumber) {
+          //   if (
+          //     this.seatsNumber - this.passengersNumber >=
+          //     addPassengersNumber
+          //   ) {
+          //     this.passengersNumber += addPassengersNumber;
+          //   } else {
+          //     throw new Error("Не вистачає місць");
+          //   }
+          // };
+
+          // Car.prototype.disembarkationPassengers = function (
+          //   removePassengersNumber
+          // ) {
+          //   if (this.passengersNumber - removePassengersNumber >= 0) {
+          //     this.passengersNumber -= removePassengersNumber;
+          //   } else {
+          //     throw new Error("Це значення більше ніж пасажирів у транспорті");
+          //   }
+          // };
+
+          // let car1 = new Car("Honda", 60, 50, 3, 1);
+          // car1.refuelingOfLiters(9);
+          // car1.printPassengersNumber();
+          // car1.boardingPassengers(1);
+          // car1.disembarkationPassengers(2);
+          // console.log(car1);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

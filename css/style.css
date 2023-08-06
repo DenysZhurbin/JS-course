@@ -15,7 +15,7 @@ p {
 
 td {
   border: 1px solid #2c2c2c;
-  padding: 4px;
+  padding: 4px 6px;
 }
 
 .body {
@@ -149,4 +149,10 @@ td {
 .wrapper__inner p {
   font-size: 18px;
   line-height: 1.5;
+}
+
+.tags {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
 }

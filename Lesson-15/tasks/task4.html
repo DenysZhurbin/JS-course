@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left isDisabled" href="task4.html"
+          >Задача 4.</a
+        >
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+      </div>
+      <h1 class="title">Задача №4.</h1>
+      <div class="wrapper__inner">
+        <p>Розробити клас Baner</p>
+        <table
+          style="
+            border-collapse: collapse;
+            border-spacing: 0;
+            table-layout: fixed;
+          "
+        >
+          <tr>
+            <td style="border-collapse: collapse; border-spacing: 0">Поля</td>
+            <td style="border-collapse: collapse; border-spacing: 0">
+              Масив об’єктів ( графічних зображень та посилань на сайти)
+            </td>
+          </tr>
+          <tr>
+            <td style="border-collapse: collapse; border-spacing: 0">Методи</td>
+            <td style="border-collapse: collapse; border-spacing: 0">
+              Метод випадкового вибору об’єкта (графічного зображення та
+              посилання)<br />
+              Метод виведення випадкового банера<br />
+            </td>
+          </tr>
+        </table>
+
+        <script>
+          class Banner {
+            constructor(array) {
+              this.array = array;
+            }
+
+            getRandomBanner() {
+              const randObjIndex = Math.floor(
+                Math.random() * this.array.length
+              );
+              return this.array[randObjIndex];
+            }
+
+            render() {
+              const randObj = this.getRandomBanner();
+              const result = `
+              <div style="margin: 28px auto; width: 600px;"><a href="${randObj.url}">
+              <img src="${randObj.image}" alt="" style="width: 100%; height: 400px; object-fit: cover;"></a></div>
+              `;
+
+              document.write(`${result}`);
+            }
+          }
+
+          const bannersData = [
+            {
+              image:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAk_Uys4f38zufD9qArv0D-IZu8bTMv8prxNRTxodOdg&s",
+              url: "https://papertoilet.com/",
+            },
+            {
+              image:
+                "https://lh5.googleusercontent.com/_OzeYTtuzFAv8N1FRyahPs5jRCyHsPX4axEPHArHrqrrqLos5pmZhwyF5BUKLb1bwfq_n2L3-NaYoUw4t3_mz9E8ReRvFg5SqF3_PvVp7F6d1rIN_Y3Dmd65Rb6azk24lJJQBVoF",
+              url: "https://www.pinterest.com/",
+            },
+            {
+              image:
+                "https://play-lh.googleusercontent.com/ekJiN2L4beUOuli4CCu47IFpal72tagAjH_ITZ2y1pol900Cv2-hQiws3KvR7Iww_N8",
+              url: "https://findtheinvisiblecow.com/",
+            },
+            {
+              image:
+                "https://d33wubrfki0l68.cloudfront.net/b38ba2006dfd10f525b1710c20a942efcb5458cf/151f4/assets/header-oil-paint.png",
+              url: "https://paint.toys/",
+            },
+            {
+              image:
+                "https://d3ufh70wg9uzo4.cloudfront.net/img/Website-ad-1-nobadges.d86ff320.png",
+              url: "https://stellarium-web.org/",
+            },
+          ];
+
+          let banners1 = new Banner(bannersData);
+          banners1.render();
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

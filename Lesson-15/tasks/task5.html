@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left isDisabled" href="task5.html"
+          >Задача 5.</a
+        >
+      </div>
+      <h1 class="title">Розробити клас «Керівник танців»</h1>
+      <div class="wrapper__inner">
+        <p></p>
+        <table
+          style="
+            border-collapse: collapse;
+            border-spacing: 0;
+            table-layout: fixed;
+          "
+        >
+          <tr>
+            <td style="border-collapse: collapse; border-spacing: 0">Поля</td>
+            <td style="border-collapse: collapse; border-spacing: 0">
+              Масив імен хлопців<br />
+              Масив імен дівчат<br />
+            </td>
+          </tr>
+          <tr>
+            <td style="border-collapse: collapse; border-spacing: 0">Методи</td>
+            <td style="border-collapse: collapse; border-spacing: 0">
+              Метод випадкового вибору імені хлопця<br />
+              Метод випадкового вибору імені дівчини<br />
+              Метод виведення пари для танців<br />
+              Метод run , який ініціює через кожні 5 секунд виведення нової пари
+              для танців<br />
+            </td>
+          </tr>
+        </table>
+
+        <script>
+          class ChoosingDancePartner {
+            constructor(males, females) {
+              this.males = males;
+              this.females = females;
+            }
+            GetRandomMaleName() {
+              const randIndexMale = Math.floor(
+                Math.random() * this.males.length
+              );
+              return this.males[randIndexMale];
+            }
+
+            GetRandomFemaleName() {
+              const randIndexFemale = Math.floor(
+                Math.random() * this.females.length
+              );
+              return this.females[randIndexFemale];
+            }
+
+            printCoupleForDancing() {
+              document.write(
+                `Зараз танцюють ${this.GetRandomMaleName()} та ${this.GetRandomFemaleName()} <br>`
+              );
+            }
+
+            render() {
+              setInterval(() => this.printCoupleForDancing(), 2000);
+            }
+          }
+
+          const males = [
+            "Віктор",
+            "Орест",
+            "Василь",
+            "Андрій",
+            "Денис",
+            "Павлік",
+          ];
+          const females = [
+            "Ганна",
+            "Марія",
+            "Оксана",
+            "Валентина",
+            "Ліда",
+            "Світлана",
+            "Ольга",
+            "Вікторія",
+            "Олеся",
+          ];
+
+          let dancers1 = new ChoosingDancePartner(males, females);
+          dancers1.render();
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

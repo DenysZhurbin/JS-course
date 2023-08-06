@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left isDisabled" href="task1.html"
+          >Задача 1.</a
+        >
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+      </div>
+      <h1 class="title">Задача №1.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Створити клас TDate для роботи із датами у форматі “день.місяць.рік”.
+          Дата представляється структурою із трьома полями. Реалізувати методи
+          збільшення/зменшення дати на певну кількість днів, місяців чи років.
+          Введення та виведення дати реалізувати за допомогою методу toString.
+        </p>
+
+        <script>
+          class TDate {
+            #day;
+            #month;
+            #year;
+            constructor(initDay, initMonth, initYear) {
+              this.Month = initMonth;
+              this.Year = initYear;
+              this.Day = initDay;
+            }
+
+            get Day() {
+              return this.#day;
+            }
+            set Day(newValue) {
+              if (
+                newValue < 1 ||
+                newValue > this.getCorrectDaysValue(this.Month, this.Year)
+              )
+                throw new Error(
+                  `Кількість днів має бути коректною, між 1 та ${this.getCorrectDaysValue(
+                    this.Month,
+                    this.Year
+                  )}`
+                );
+              this.#day = newValue;
+            }
+
+            get Month() {
+              return this.#month;
+            }
+            set Month(newValue) {
+              if (newValue < 1 || newValue > 12)
+                throw new Error(
+                  "Кількість місяців має бути коректною, між 1 та 12"
+                );
+              this.#month = newValue;
+            }
+
+            get Year() {
+              return this.#year;
+            }
+            set Year(newValue) {
+              if (newValue < 1)
+                throw new Error("Кількість років повинна бути більша за 0");
+              this.#year = newValue;
+            }
+
+            toString() {
+              return `${this.Day}.${this.Month}.${this.Year}`;
+            }
+
+            getCorrectDaysValue(month, year) {
+              if (year % 400 === 0 && month === 2) {
+                return 29;
+              } else if (year % 100 !== 0 && year % 4 === 0 && month === 2) {
+                return 29;
+              }
+
+              let daysValue;
+              switch (month) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                  daysValue = 31;
+                  break;
+
+                case 2:
+                  daysValue = 28;
+                  break;
+
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                  daysValue = 30;
+                  break;
+
+                default:
+                  throw new Error("Значення місяця не коректне");
+                  break;
+              }
+              return daysValue;
+            }
+          }
+
+          let date1 = new TDate(10, 2, 1700);
+          document.write(date1);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

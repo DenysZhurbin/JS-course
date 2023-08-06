@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left isDisabled" href="task3.html"
+          >Задача 3.</a
+        >
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+      </div>
+      <h1 class="title">Задача №3.</h1>
+      <div class="wrapper__inner">
+        <p>Розробити клас MultChecker для перевірки таблиці множення</p>
+        <table
+          style="
+            border-collapse: collapse;
+            border-spacing: 0;
+            table-layout: fixed;
+          "
+        >
+          <tr>
+            <td style="border-collapse: collapse; border-spacing: 0">Поля</td>
+            <td style="border-collapse: collapse; border-spacing: 0">
+              Число, яке перевіряємо (наприклад, перевірка частини таблиці
+              множення на 7)<br />
+              Кількість правильних відповідей<br />
+              Кількість неправильних відповідей<br />
+            </td>
+          </tr>
+          <tr>
+            <td style="border-collapse: collapse; border-spacing: 0">Методи</td>
+            <td style="border-collapse: collapse; border-spacing: 0">
+              Генерування прикладу (метод випадковим чином визначає друге число,
+              перше число фіксоване)<br />
+              Перевірка правильності вказаної відповіді<br />
+              render<br />
+            </td>
+          </tr>
+        </table>
+        <br />
+
+        <script>
+          class MultiChecker {
+            constructor() {
+              this.checkNumber = parseInt(
+                prompt("Введіть ціле число для перевірки:")
+              );
+              this.correctAnswers = 0;
+              this.incorrectAnswers = 0;
+            }
+            getRandomNum() {
+              return Math.floor(Math.random() * (9 - 1 + 1) + 1);
+            }
+
+            checkResult() {
+              let randomNum = this.getRandomNum();
+              let userAnswer = parseInt(
+                prompt(`Скільке буде: ${this.checkNumber} * ${randomNum}?`)
+              );
+              return randomNum * this.checkNumber === userAnswer
+                ? this.correctAnswers++
+                : this.incorrectAnswers++;
+            }
+
+            render() {
+              do {
+                this.checkResult();
+              } while (confirm("Продовжувати?"));
+              return document.write(
+                `Кількість правильних відповідей: ${this.correctAnswers}<br> Кідькість помилок: ${this.incorrectAnswers}`
+              );
+            }
+          }
+
+          let mCheck = new MultiChecker();
+          mCheck.render();
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

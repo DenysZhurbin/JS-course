@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task0.html">Задача 0.</a>
+        <a class="link link--upper-left isDisabled" href="task1.html"
+          >Задача 1.</a
+        >
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+      </div>
+      <h1 class="title">Задача №1.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті
+          є заєць і 0 в іншому випадку.
+        </p>
+        <table
+          style="
+            border-collapse: collapse;
+            border-spacing: 0;
+            table-layout: fixed;
+          "
+        >
+          <tr>
+            <td style="border-collapse: collapse; border-spacing: 0">Тир</td>
+            <td style="border-collapse: collapse; border-spacing: 0"></td>
+          </tr>
+          <tr>
+            <td style="border-collapse: collapse; border-spacing: 0">
+              Поля(властивості)
+            </td>
+            <td style="border-collapse: collapse; border-spacing: 0">
+              Масив, у якому зберігається поле з зайцями
+            </td>
+          </tr>
+          <tr>
+            <td style="border-collapse: collapse; border-spacing: 0">
+              Методи (дії)
+            </td>
+            <td style="border-collapse: collapse; border-spacing: 0">
+              Метод пострілу (задається позиція пострілу)<br />
+              Виведення ігрового поля
+            </td>
+          </tr>
+        </table>
+
+        <script>
+          // Створюємо конструктор об'єкта
+          function ShootingGallery(eggsArray) {
+            this.eggsArray = eggsArray;
+          }
+
+          // Метод позиції пострілу
+          ShootingGallery.prototype.initPosition = function (position) {
+            position = parseInt(
+              prompt(
+                `Куди стріляємо? Діапазон від 0 до ${this.eggsArray.length - 1}`
+              )
+            );
+            return this.eggsArray[position] === 1
+              ? alert("Влучили")
+              : alert("Мимо");
+          };
+
+          // Метод виводу поля на екран
+          ShootingGallery.prototype.toString = function () {
+            return document.write(`<br>[${this.eggsArray}]`);
+          };
+
+          // Створюємо об'єкт
+          let startGame = new ShootingGallery([0, 0, 1, 0, 1, 0, 0]);
+
+          // вивід
+          startGame.initPosition();
+          startGame.toString();
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

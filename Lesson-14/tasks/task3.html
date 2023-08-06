@@ -515,12 +515,22 @@
           console.log(availableGoods);
 
           // 4)
-          const availableGoodsList = availableGoods.map((goods) => ({
-            id: goods.id,
-            old_price: goods.old_price,
-            price: goods.price,
-            usd_price: goods.usd_price,
-          }));
+          // const availableGoodsList = availableGoods.map((goods) => ({
+          //   id: goods.id,
+          //   old_price: goods.old_price,
+          //   price: goods.price,
+          //   usd_price: goods.usd_price,
+          // }));
+
+          // скорочений запис
+          const availableGoodsList = availableGoods.map(
+            ({ id, old_price, price, usd_price }) => ({
+              id,
+              old_price,
+              price,
+              usd_price,
+            })
+          );
 
           console.log(availableGoodsList);
 
