@@ -20,37 +20,75 @@
       </div>
       <h1 class="title">Задача №2.</h1>
       <div class="wrapper__inner">
-        <p></p>
+        <p>
+          Створити клас TMoney для роботи з грошовими сумами. Сума повинна
+          зберігатися у вигляді доларового еквіваленту. Реалізувати методи
+          додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях,
+          та визначення курсу долара, при якому сума у гривнях збільшиться на
+          100. Курс долара зберігати в окремому полі.
+        </p>
 
         <script>
-          function getDaysInMonth(month, year) {
-            return new Date(year, month + 1, 0).getDate();
+          class TMoney {
+            #usdRate;
+            #usdBallance;
+
+            constructor(initUahBalance, initUsdRate) {
+              this.UsdRate = initUsdRate;
+              this.UahBallance = initUahBalance;
+            }
+
+            get UsdBallance() {
+              return this.#usdBallance;
+            }
+
+            get UahBallance() {
+              return this.#usdBallance * this.UsdRate;
+            }
+            set UahBallance(uahSum) {
+              console.log(uahSum);
+              console.log(this.#usdBallance);
+              if (uahSum < 0) throw new Error("Не вірна сума");
+              this.#usdBallance = uahSum / this.UsdRate;
+            }
+
+            get UsdRate() {
+              return this.#usdRate;
+            }
+            set UsdRate(newRate) {
+              if (newRate < 0) throw new Error("Кур не може бути меньше нуля");
+              this.#usdRate = newRate;
+            }
+
+            toString() {
+              return `Поточний баланс USD =${this.UsdBallance.toFixed(
+                2
+              )}. Курс 1$ = ${
+                this.UsdRate
+              } грн. Поточний баланс UAH = ${this.UahBallance.toFixed(2)}`;
+            }
+
+            addMoney(uah) {
+              if (uah < 0) throw new Error("Сума поповнення не коректна");
+              this.UahBallance += uah;
+            }
+
+            getMoney(uah) {
+              if (uah < 0) throw new Error("Сума зняття не коректна");
+              if (uah > this.UahBallance)
+                throw new Error("Не достатньо грошей");
+              return (this.UahBallance -= uah);
+            }
+
+            rateBy100Uah() {
+              return (this.UahBallance + 100) / this.UsdBallance;
+            }
           }
 
-          // Масив з назвами місяців
-          const months = [
-            "Січень",
-            "Лютий",
-            "Березень",
-            "Квітень",
-            "Травень",
-            "Червень",
-            "Липень",
-            "Серпень",
-            "Вересень",
-            "Жовтень",
-            "Листопад",
-            "Грудень",
-          ];
-
-          // Виведення таблиці з назвами місяців та кількістю днів
-          console.log("Місяць    | Кількість днів");
-          console.log("-------------------------");
-          for (let i = 0; i < months.length; i++) {
-            const monthName = months[i];
-            const daysInMonth = getDaysInMonth(i, 2023); // 2023 - рік для прикладу
-            console.log(`${monthName} | ${daysInMonth}`);
-          }
+          let tMoney1 = new TMoney(5000, 36.65);
+          document.write(`${tMoney1.rateBy100Uah()}<br>`);
+          tMoney1.getMoney(100);
+          document.write(`${tMoney1}<br>`);
         </script>
       </div>
     </div>

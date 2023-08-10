@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left isDisabled" href="task6.html"
+          >Задача 6.</a
+        >
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+      </div>
+      <h1 class="title">Задача №6.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Користувач задає кількість оцінок і натискає на кнопку «get table». В
+          результаті формується таблиця з input, куди користувач вводить оцінки.
+          Після цього натискає на кнопку “get sum” і знаходить середнє значення.
+        </p>
+        <label>
+          Price number:
+          <input type="number" id="inputNum" value="5" />
+        </label>
+        <br />
+        <button class="getTable">get table</button>
+        <br />
+        <div class="inputs">
+          <!-- <label>
+            <input type="number" id="tableInput" value="0" />
+          </label> -->
+        </div>
+        <button class="getSum">get sum</button>
+        <p>Cереднє значення = <span class="result"></span></p>
+        <script>
+          window.onload = function () {
+            document.getElementsByClassName("getTable")[0].onclick =
+              renderInputs;
+
+            document.getElementsByClassName("getSum")[0].onclick =
+              getAverageNumber;
+          };
+          function renderInputs() {
+            const inputNumValue = parseInt(
+              document.getElementById("inputNum").value
+            );
+            const tableEl = document.createElement("table");
+            const divContainer = document.getElementsByClassName("inputs")[0];
+            divContainer.append(tableEl);
+            for (let i = 0; i < inputNumValue; i++) {
+              const trEl = document.createElement("tr");
+              for (let j = 0; j < 1; j++) {
+                const tdEl = document.createElement("td");
+                tdEl.innerHTML = `
+                <label>
+                  <input type="number" class="tableInput" value="0" />
+                </label>
+                `;
+                trEl.append(tdEl);
+              }
+              tableEl.append(trEl);
+            }
+          }
+
+          function getAverageNumber() {
+            const inputsValues = document.getElementsByClassName("tableInput");
+            // let result = document.getElementsByClassName("result")[0].innerText;
+            let averageNumber = 0;
+            for (const input of inputsValues) {
+              averageNumber += parseInt(input.value);
+            }
+
+            document.getElementsByClassName("result")[0].innerText =
+              averageNumber / inputsValues.length;
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

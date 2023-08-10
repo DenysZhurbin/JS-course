@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left isDisabled" href="task7.html"
+          >Задача 7.</a
+        >
+      </div>
+      <h1 class="title">Задача №7.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Подорож складається з 3 етапів. На кожному етапі користувач може
+          вибрати один з видів транспорту (авто, автобус, літак - випадаючий
+          список), харчування (сніданок, обід, вечеря – checkbоx) та одного з
+          3-х гідів(використати - radio buttons). Ціни визначте самі.
+          Підрахувати загальну вартість.
+        </p>
+
+        <form style="border-bottom: 1px solid black">
+          <p>Перший етап подорожі:</p>
+          <div style="padding: 0 4px 6px">
+            <label for="transport">Оберіть транспорт</label>
+            <select name="transport" id="transport">
+              <option value="950">Авто</option>
+              <option value="450">Автобус</option>
+              <option value="3700">Літак</option>
+            </select>
+          </div>
+          <div style="padding: 0 4px 6px">
+            <label for="meal">Оберіть харчування</label>
+            <label
+              ><input type="checkbox" name="meal" value="65" />Сніданок 65 грн
+            </label>
+            <label
+              ><input type="checkbox" name="meal" value="120" />Обід 120 грн
+            </label>
+            <label
+              ><input type="checkbox" name="meal" value="90" />Вечеря 90 грн
+            </label>
+          </div>
+          <div style="padding: 0 4px 6px">
+            <label for="meal">Оберіть гіда</label>
+            <label><input type="radio" name="guide" value="300" />Гід 1 </label>
+            <label><input type="radio" name="guide" value="400" />Гід 2 </label>
+            <label><input type="radio" name="guide" value="450" />Гід 3 </label>
+          </div>
+        </form>
+
+        <form style="border-bottom: 1px solid black">
+          <p>Другий етап подорожі:</p>
+          <div style="padding: 0 4px 6px">
+            <label for="transport">Оберіть транспорт</label>
+            <select name="transport" id="transport">
+              <option value="950">Авто</option>
+              <option value="450">Автобус</option>
+              <option value="3700">Літак</option>
+            </select>
+          </div>
+          <div style="padding: 0 4px 6px">
+            <label for="meal">Оберіть харчування</label>
+            <label
+              ><input type="checkbox" name="meal" value="65" />Сніданок 65 грн
+            </label>
+            <label
+              ><input type="checkbox" name="meal" value="120" />Обід 120 грн
+            </label>
+            <label
+              ><input type="checkbox" name="meal" value="90" />Вечеря 90 грн
+            </label>
+          </div>
+          <div style="padding: 0 4px 6px">
+            <label for="meal">Оберіть гіда</label>
+            <label><input type="radio" name="guide" value="300" />Гід 1 </label>
+            <label><input type="radio" name="guide" value="400" />Гід 2 </label>
+            <label><input type="radio" name="guide" value="450" />Гід 3 </label>
+          </div>
+        </form>
+
+        <form>
+          <p>Третій етап подорожі:</p>
+          <div style="padding: 0 4px 6px">
+            <label for="transport">Оберіть транспорт</label>
+            <select name="transport" id="transport">
+              <option value="950">Авто</option>
+              <option value="450">Автобус</option>
+              <option value="3700">Літак</option>
+            </select>
+          </div>
+          <div style="padding: 0 4px 6px">
+            <label for="meal">Оберіть харчування</label>
+            <label
+              ><input type="checkbox" name="meal" value="65" />Сніданок 65 грн
+            </label>
+            <label
+              ><input type="checkbox" name="meal" value="120" />Обід 120 грн
+            </label>
+            <label
+              ><input type="checkbox" name="meal" value="90" />Вечеря 90 грн
+            </label>
+          </div>
+          <div style="padding: 0 4px 6px">
+            <label for="meal">Оберіть гіда</label>
+            <label><input type="radio" name="guide" value="300" />Гід 1 </label>
+            <label><input type="radio" name="guide" value="400" />Гід 2 </label>
+            <label><input type="radio" name="guide" value="450" />Гід 3 </label>
+          </div>
+          <button type="button" id="calculateButton">
+            Підрахувати вартість
+          </button>
+        </form>
+
+        <div style="padding: 10px 4px 6px" id="output"></div>
+
+        <script>
+          window.onload = function () {
+            document.getElementById("calculateButton").onclick =
+              calculateTotalSum;
+          };
+          function calculateTotalSum() {
+            const transportSelected = document.querySelectorAll("select");
+            const mealsList = document.querySelectorAll('[name="meal"]');
+            const guidesList = document.querySelectorAll('[name="guide"]');
+
+            let totalSum = 0;
+            for (const transport of transportSelected) {
+              totalSum += parseFloat(transport.value);
+            }
+            for (const meal of mealsList) {
+              if (meal.checked) totalSum += parseFloat(meal.value);
+            }
+            for (const gide of guidesList) {
+              if (gide.checked) totalSum += parseFloat(gide.value);
+            }
+            document.getElementById(
+              "output"
+            ).innerText = `Загальна вартість подорожі, складає: ${totalSum} грн.`;
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

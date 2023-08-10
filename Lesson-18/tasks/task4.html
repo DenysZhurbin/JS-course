@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <style>
+      .wish {
+        padding: 4px;
+        margin: 2px 4px;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left isDisabled" href="task4.html"
+          >Задача 4.</a
+        >
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+      </div>
+      <h1 class="title">Задача №4.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Наперед задано у скрипті масив зі списком бажань. Після завантаження
+          сторінки випадковим чином вибираються 3 і відображаються у окремих div
+          (їх треба створити і додати на сторінку)
+        </p>
+        <div class="container"></div>
+        <script>
+          const desires = [
+            "добре вивчити JS",
+            "скорішої перемоги України над рф",
+            "побачити близьких",
+            "новий авто",
+            "підвищення",
+            "завжди склянка чистої води під рукою",
+            "щастя в очах людей",
+          ];
+
+          function render() {
+            const container = document.getElementsByClassName("container")[0];
+            // рішення 1
+            for (let i = 0; i < 3; i++) {
+              let wish = desires[Math.floor(Math.random() * 5)];
+              container.innerHTML += `<div style="padding: 4px; margin: 2px 4px;">${wish}</div>`;
+            }
+            // рішення 2
+            // for (let i = 0; i < 3; i++) {
+            //   let wish = desires[Math.floor(Math.random() * 5)];
+            //   const div = document.createElement("div");
+            //   div.textContent = wish;
+            //   container.appendChild(div);
+            // }
+          }
+
+          window.onload = function () {
+            render();
+          };
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

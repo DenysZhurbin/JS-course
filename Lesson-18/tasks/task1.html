@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left isDisabled" href="task1.html"
+          >Задача 1.</a
+        >
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+      </div>
+      <h1 class="title">Задача №1.</h1>
+      <div class="wrapper__inner">
+        <p>Розробити калькулятор</p>
+        <label>
+          First number
+          <input
+            id="first"
+            type="number"
+            placeholder="Type first number here"
+            value="8"
+          />
+        </label>
+        <br />
+        <label>
+          Second number
+          <input
+            id="second"
+            type="number"
+            placeholder="Type second number here"
+            value="2"
+          />
+        </label>
+        <div
+          id="container"
+          style="
+            padding-bottom: 4px;
+            margin-bottom: 4px;
+            border-bottom: 1px solid black;
+          "
+        >
+          <button class="add">Додати</button>
+          <button class="subtract">Відняти</button>
+          <button class="multiply">Помножити</button>
+          <button class="divide">Поділити</button>
+        </div>
+        <label>
+          Sum
+          <input id="result" type="number" placeholder="Result" />
+        </label>
+        <script>
+          const firstNum = parseInt(document.getElementById("first").value);
+          const secondNum = parseInt(document.getElementById("second").value);
+          function getSum() {
+            const s = firstNum + secondNum;
+            document.getElementById("result").value = s;
+          }
+          function getSubtract() {
+            const s = firstNum - secondNum;
+            document.getElementById("result").value = s;
+          }
+          function getMultiply() {
+            const s = firstNum * secondNum;
+            document.getElementById("result").value = s;
+          }
+          function getDivide() {
+            const s = firstNum / secondNum;
+            document.getElementById("result").value = s;
+          }
+          window.onload = function () {
+            document.getElementsByClassName("add")[0].onclick = getSum;
+            document.getElementsByClassName("subtract")[0].onclick =
+              getSubtract;
+            document.getElementsByClassName("multiply")[0].onclick =
+              getMultiply;
+            document.getElementsByClassName("divide")[0].onclick = getDivide;
+          };
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

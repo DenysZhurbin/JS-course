@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left isDisabled" href="task2.html"
+          >Задача 2.</a
+        >
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+      </div>
+      <h1 class="title">Задача №2.</h1>
+      <div class="wrapper__inner">
+        <p>Зробити конвертер валют (курси валют – константи у скрипті)</p>
+        <label>
+          Сума в гривнях гривень
+          <input type="number" id="uah" value="100" />
+        </label>
+        <div
+          style="
+            padding-bottom: 4px;
+            margin-bottom: 4px;
+            border-bottom: 1px solid black;
+          "
+        >
+          <button>Конвертувати</button>
+        </div>
+        <label>
+          Сума в євро
+          <input type="number" id="eur" value="0" />
+        </label>
+        <br />
+        <label>
+          Сума в доларах
+          <input type="number" id="usd" value="0" />
+        </label>
+        <script>
+          function converter() {
+            const usdRate = 37;
+            const eurRate = 39;
+            const uah = parseFloat(document.getElementById("uah").value);
+            const usd = uah / usdRate;
+            const eur = uah / eurRate;
+            console.log(eur.toFixed(2));
+            document.getElementById("eur").value = eur.toFixed(2);
+            document.getElementById("usd").value = usd.toFixed(2);
+          }
+          window.onload = function () {
+            document.querySelector("button").onclick = converter;
+          };
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

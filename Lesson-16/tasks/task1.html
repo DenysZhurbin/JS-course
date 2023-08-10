@@ -79,6 +79,81 @@
               return `${this.Day}.${this.Month}.${this.Year}`;
             }
 
+            addDate(days, months, years) {
+              years += Math.floor((this.Month + months) / 12);
+              days += this.Day;
+
+              this.Month =
+                (this.Month + months) % 12 !== 0
+                  ? (this.Month + months) % 12
+                  : this.Month;
+              this.Year += years;
+
+              for (let i = 0; i < days; i++) {
+                let currentDay = this.getCorrectDaysValue(
+                  this.Month,
+                  this.Year
+                );
+                if (days > currentDay) {
+                  if (this.Month !== 12) {
+                    days -= currentDay;
+                    this.Month++;
+                    if (days < currentDay) this.Day = days;
+                  } else {
+                    days -= currentDay;
+                    this.Year++;
+                    this.Month = 1;
+                    if (days < currentDay) this.Day = days;
+                  }
+                } else {
+                  this.Day = days;
+                  days = 0;
+                }
+              }
+              return this;
+            }
+
+            subtractDate(days, months, years) {
+              years += Math.floor(months / 12);
+              // days += this.Day;
+              console.log(years);
+              console.log(months % 12);
+              this.Year -= years;
+
+              if (months % 12 !== 0 && this.Month - (months % 12) > 0) {
+                this.Month -= months % 12;
+                console.log("1");
+              } else {
+                this.Year--;
+                this.Month = 12 - Math.abs(this.Month - (months % 12));
+                console.log("2");
+              }
+
+              for (let i = 0; i < days; i++) {
+                let currentDay = this.getCorrectDaysValue(
+                  this.Month,
+                  this.Year
+                );
+                console.log(currentDay);
+                if (days > currentDay) {
+                  if (this.Month !== 1) {
+                    days -= currentDay;
+                    this.Month--;
+                    if (days < currentDay) this.Day = days;
+                  } else {
+                    days -= currentDay;
+                    this.Year--;
+                    this.Month = 12;
+                    if (days < currentDay) this.Day = days;
+                  }
+                } else {
+                  this.Day = days;
+                  days = 0;
+                }
+              }
+              return this;
+            }
+
             getCorrectDaysValue(month, year) {
               if (year % 400 === 0 && month === 2) {
                 return 29;
@@ -117,8 +192,13 @@
             }
           }
 
-          let date1 = new TDate(10, 2, 1700);
-          document.write(date1);
+          let date1 = new TDate(30, 3, 2000);
+          let date2 = new TDate(1, 1, 2000);
+          document.write(`
+          Поточна дата ${date1}<br>
+          Додана дата ${date1.addDate(0, 356, 156)}<br>
+          Від'ємна дата ${date2.subtractDate(835, 356, 156)}
+          `);
         </script>
       </div>
     </div>
