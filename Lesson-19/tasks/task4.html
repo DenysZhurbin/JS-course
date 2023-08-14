@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left isDisabled" href="task4.html"
+          >Задача 4.</a
+        >
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+      </div>
+      <h1 class="title">Задача №4.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Дано 3 таблиці розмірності 3*3 з випадковими числами. Якщо
+          відбувається клік на якійсь із клітинок, то до відповідної таблиці
+          додається червона рамка (спробуйте додати можливість відображення
+          кількості кліків біля назви таблиці з використанням відповідно
+          доданого для цього атрибута).
+        </p>
+
+        <script>
+          function createTable(row, column, number) {
+            const tableEl = document.createElement("table");
+            const container =
+              document.getElementsByClassName("wrapper__inner")[0];
+            container.append(tableEl);
+            const span = document.createElement("span");
+            span.innerText = 0;
+            tableEl.append(span);
+            for (let i = 0; i < row; i++) {
+              const trEl = document.createElement("tr");
+              for (let j = 0; j < column; j++) {
+                const tdEl = document.createElement("td");
+                tdEl.innerText = number(1, 100);
+                trEl.append(tdEl);
+              }
+              tableEl.append(trEl);
+            }
+          }
+
+          function randomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+          }
+
+          function addProperties() {
+            this.style.border = "2px solid red"; //в цей раз не буду додавати клас, зроблю стилі через JS для різновиду та практики
+            let counter = parseInt(this.querySelector("span").innerText);
+            counter++;
+            parseInt((this.querySelector("span").innerText = counter));
+          }
+
+          function run() {
+            for (let i = 0; i < 3; i++) {
+              createTable(3, 3, randomNumber);
+            }
+
+            const tables = document.querySelectorAll("table");
+
+            for (const table of tables) {
+              table.onclick = addProperties;
+            }
+          }
+          run();
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

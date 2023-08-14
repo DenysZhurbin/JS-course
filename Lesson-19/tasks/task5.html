@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .card {
+        width: 190px;
+        border: 1px solid #dadadac6;
+        padding: 10px;
+        display: inline-block;
+        margin: 4px;
+      }
+      .card--green-border {
+        border: 2px solid #36ff28c6;
+      }
+      .card__img-wrapper img {
+        object-fit: contain;
+        width: 100%;
+      }
+      .card__status {
+        font-size: 12px;
+        display: inline-block;
+        padding: 4px 8px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+      }
+      .bg-yellow {
+        background-color: #ffdc17;
+      }
+      .bg-red {
+        background-color: #ff1818;
+      }
+      .card__model {
+        font-size: 14px !important;
+        line-height: 20px;
+      }
+      .card__price {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left isDisabled" href="task5.html"
+          >Задача 5.</a
+        >
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+      </div>
+      <h1 class="title">Задача №5.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Відображаємо картки товарів, які користувач може вибирати. Вибраний
+          товар має зелену рамку (при кліку робити toogle з класом вибраного
+          елемента)
+        </p>
+        <div id="container"></div>
+        <script>
+          class Card {
+            #price;
+            constructor(
+              initStatusTitle,
+              initStatusTitleColor,
+              initImgUrl,
+              initModel,
+              initPrice
+            ) {
+              this.statusTitle = initStatusTitle;
+              this.statusTitleColor = initStatusTitleColor;
+              this.imgUrl = initImgUrl;
+              this.model = initModel;
+              this.Price = initPrice;
+            }
+            get Price() {
+              return this.#price;
+            }
+            set Price(value) {
+              if (value <= 0) throw new Error("Не коректне значення ціни");
+              this.#price = value;
+            }
+            renderCard(idWrapper) {
+              const wrapper = document.getElementById(`${idWrapper}`);
+
+              const card = document.createElement("div");
+              card.classList.add("card");
+              wrapper.append(card);
+
+              const cardStatus = document.createElement("span");
+              cardStatus.innerText = this.statusTitle;
+              cardStatus.classList.add(
+                `${this.statusTitleColor}`,
+                "card__status"
+              );
+              card.append(cardStatus);
+
+              const imgWrapper = document.createElement("div");
+              imgWrapper.classList.add("card__img-wrapper");
+              card.append(imgWrapper);
+
+              const img = document.createElement("img");
+              img.src = this.imgUrl;
+              imgWrapper.append(img);
+
+              const model = document.createElement("p");
+              model.innerText = this.model;
+              model.classList.add("card__model");
+              card.append(model);
+
+              const price = document.createElement("p");
+              price.innerText = `${this.Price} грн.`;
+              price.classList.add("card__price");
+              card.append(price);
+            }
+          }
+
+          let card1 = new Card(
+            "ТОП ПРОДАЖ",
+            "bg-yellow",
+            "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/a/n/an515-57_1650.jpg/w_600",
+            "Ноутбук ігровий Acer Nitro 5 AN515-57-51H7 (NH.QEKEU.002) Black",
+            29999
+          );
+          let card2 = new Card(
+            "АКЦІЯ",
+            "bg-red",
+            "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/a/s/aspire5_a51556gst_fpbl1_bu_01a.tif-custom.jpg/f_auto",
+            "Ноутбук Acer Aspire 5 A515-56-34BX (NX.A8NEU.003) Glacier Blue",
+            18499
+          );
+          let card3 = new Card(
+            "ТОП ПРОДАЖ",
+            "bg-yellow",
+            "https://img.moyo.ua/img/products/5159/4_600.jpg?1691935911",
+            "Ноутбук LENOVO IdeaPad 3 (81WB00VERA)",
+            14999
+          );
+
+          card1.renderCard("container");
+          card2.renderCard("container");
+          card3.renderCard("container");
+
+          function toggleBorder() {
+            this.classList.toggle("card--green-border");
+          }
+
+          window.onload = function () {
+            const cards = document.querySelectorAll(".card");
+            for (const card of cards) {
+              card.onclick = toggleBorder;
+            }
+          };
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <style>
+      .container {
+        padding: 10px;
+      }
+      .bg-green {
+        background-color: green;
+      }
+      .bg-red {
+        background-color: red;
+      }
+      .reset-ul-style li {
+        list-style-type: normal;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left isDisabled" href="task3.html"
+          >Задача 3.</a
+        >
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+      </div>
+      <h1 class="title">Задача №3.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Дано 5 випадковим чином згенерованих нумерованих списків з рандомними
+          числами (кількість елементів у списку випадкова від 1 до 10, елементи
+          випадкові – від 1 до 100). При натисненні на кнопку нумеровані списки
+          з парною кількістю елементів зафарбувати у зелений колір, інші у
+          червоний.
+        </p>
+
+        <div class="container"></div>
+        <button>Press</button>
+        <script>
+          function addColors() {
+            const olList = document.querySelectorAll("ol");
+            for (const ol of olList) {
+              if (ol.children.length % 2 === 0) ol.classList.add("bg-green");
+              else ol.classList.add("bg-red");
+            }
+          }
+
+          function render() {
+            const container = document.getElementsByClassName("container")[0];
+            for (let i = 0; i < 5; i++) {
+              const ol = document.createElement("ol");
+              ol.classList.add("reset-ul-style"); //це фікс стилів, бо глобально змінено під верстку домашки.
+              for (let j = 0; j < randomNumber(1, 10); j++) {
+                const li = document.createElement("li");
+                li.innerText = randomNumber(1, 100);
+                ol.append(li);
+              }
+              container.append(ol);
+            }
+          }
+
+          function randomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+          }
+
+          window.onload = function () {
+            let button = document.querySelector("button");
+
+            button.onclick = function () {
+              render();
+              setTimeout(addColors, 2000);
+            };
+          };
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

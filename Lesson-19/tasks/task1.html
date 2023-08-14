@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <style>
+      .redBg {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left isDisabled" href="task1.html"
+          >Задача 1.</a
+        >
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+      </div>
+      <h1 class="title">Задача №1.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Дано 10 рядків тексту «Hello!» у окремих div. При кліку на якийсь із
+          них усі наступні повинні бути зафарбовані у червоний колір.
+        </p>
+        <div>
+          <div class="helloDiv">Hello!</div>
+          <div class="helloDiv">Hello!</div>
+          <div class="helloDiv">Hello!</div>
+          <div class="helloDiv">Hello!</div>
+          <div class="helloDiv">Hello!</div>
+          <div class="helloDiv">Hello!</div>
+          <div class="helloDiv">Hello!</div>
+          <div class="helloDiv">Hello!</div>
+          <div class="helloDiv">Hello!</div>
+          <div class="helloDiv">Hello!</div>
+        </div>
+
+        <script>
+          // window.onload = function () {
+          //   document.getElementsByClassName("add")[0].onclick = getSum;
+          // };
+          function markDivs() {
+            let divs = this;
+            while (divs.previousElementSibling) {
+              divs = divs.previousElementSibling;
+              if (divs.classList.contains("redBg"))
+                divs.classList.remove("redBg");
+            }
+
+            divs = this;
+            while (divs.nextElementSibling) {
+              divs = divs.nextElementSibling;
+              divs.classList.add("redBg");
+            }
+            this.classList.add("redBg");
+          }
+
+          const divList = document.querySelectorAll(".helloDiv");
+
+          for (const div of divList) {
+            div.onclick = markDivs;
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

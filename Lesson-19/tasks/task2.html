@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <style>
+      .column {
+        display: block;
+        padding-bottom: 6px;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left isDisabled" href="task2.html"
+          >Задача 2.</a
+        >
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+      </div>
+      <h1 class="title">Задача №2.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Дано 5 елементів input. При введенні значення у якийсь із них
+          необхідно автоматично заповнювати інші (усі попередні у спадному
+          порядку(кожен попередній має значення на 1 менше за наступний), усі
+          наступні на 1 більше (кожен наступне на 1 більше за попереднього)
+        </p>
+
+        <div class="container">
+          <form>
+            <label class="column"
+              >Value 1 <input type="number" value="0"
+            /></label>
+            <label class="column"
+              >Value 2 <input type="number" value="0"
+            /></label>
+            <label class="column"
+              >Value 3 <input type="number" value="0"
+            /></label>
+            <label class="column"
+              >Value 4 <input type="number" value="0"
+            /></label>
+            <label class="column"
+              >Value 5 <input type="number" value="0"
+            /></label>
+          </form>
+        </div>
+
+        <script>
+          function inputsChanger() {
+            let label = this;
+            let currentValue = this.querySelector("input").value;
+
+            while (label.previousElementSibling) {
+              label = label.previousElementSibling;
+              label.querySelector("input").value = --currentValue;
+            }
+            while (label.nextElementSibling) {
+              label = label.nextElementSibling;
+              label.querySelector("input").value = ++currentValue;
+            }
+          }
+
+          const inputList = document.querySelectorAll("label");
+
+          for (const input of inputList) {
+            input.oninput = inputsChanger;
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

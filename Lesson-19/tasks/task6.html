@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <style>
+      .container,
+      .player {
+        display: flex;
+        justify-content: space-between;
+      }
+      .column {
+        margin: 4px;
+        width: 100%;
+        border: 1px solid black;
+      }
+      .player {
+        border: 1px solid black;
+        padding: 4px;
+        margin: 4px;
+      }
+      .player p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left isDisabled" href="task6.html"
+          >Задача 6.</a
+        >
+        <a class="link link--upper-left" href="task7.html">Задача 7.</a>
+      </div>
+      <h1 class="title">Задача №6.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Дано список спортсменів. Потрібно сформувати список тих, які будуть
+          брати участь у змаганні. При цьому є два стовпці. В одному відображені
+          всі спортсмени, в іншому – список тих, хто був вибраний. При
+          натисканні на зелену стрілку спортсмен переміщається у список для
+          змагань. При натисканні на червону стрілку спортсмен переміщається у
+          загальний список.
+        </p>
+        <div class="container" id="container">
+          <div id="allPlayers" class="column">
+            <div class="player">
+              <p>John Depp</p>
+              <button>=></button>
+            </div>
+            <div class="player">
+              <p>Sara Wik</p>
+              <button>=></button>
+            </div>
+            <div class="player">
+              <p>Den Miro</p>
+              <button>=></button>
+            </div>
+            <div class="player">
+              <p>Alan Woo</p>
+              <button>=></button>
+            </div>
+          </div>
+          <div id="activePlayers" class="column">
+            <div class="player">
+              <p>Olga Sich</p>
+              <button><=</button>
+            </div>
+            <div class="player">
+              <p>Ivan Hal</p>
+              <button><=</button>
+            </div>
+          </div>
+        </div>
+        <script>
+          const allPlayers = document.getElementById("allPlayers");
+          const activePlayers = document.getElementById("activePlayers");
+
+          function replacePlayer() {
+            const btn = this;
+            const player = btn.closest(".player");
+            if (player.closest("#allPlayers") && activePlayers) {
+              btn.innerText = "<=";
+              activePlayers.append(player);
+            } else if (player.closest("#activePlayers") && allPlayers) {
+              btn.innerText = "=>";
+              allPlayers.append(player);
+            }
+          }
+
+          window.onload = function () {
+            const cards = document.querySelectorAll("button");
+            for (const card of cards) {
+              card.onclick = replacePlayer;
+            }
+          };
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

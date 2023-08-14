@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="links">
+        <a class="link link--upper-left" href="../../index.html">На головну</a>
+        <a class="link link--upper-left" href="task1.html">Задача 1.</a>
+        <a class="link link--upper-left" href="task2.html">Задача 2.</a>
+        <a class="link link--upper-left" href="task3.html">Задача 3.</a>
+        <a class="link link--upper-left" href="task4.html">Задача 4.</a>
+        <a class="link link--upper-left" href="task5.html">Задача 5.</a>
+        <a class="link link--upper-left" href="task6.html">Задача 6.</a>
+        <a class="link link--upper-left isDisabled" href="task7.html"
+          >Задача 7.</a
+        >
+      </div>
+      <h1 class="title">Задача №7.</h1>
+      <div class="wrapper__inner">
+        <p>
+          Відобразити падаючий сніг. Сніжинка з’являється у верхній частині
+          екрану (top =0) і з випадковою швидкістю рухається вниз (у setInterval
+          викликати метод, у якому додавати крок до top). Як тільки сніжинка
+          досягає нижньої частини екрану (top>maxTop) вона знову повинна
+          з’явитись у верхній частині екрану (top=0).
+        </p>
+
+        <script>
+          class Snowfall {
+            constructor() {
+              this.screenWidth = window.innerWidth - 26;
+              this.screenHeight = window.innerHeight - 26;
+            }
+            randomNumber(min, max) {
+              return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+            calculateSnowflakes() {
+              let width = this.screenWidth;
+              return (width = width / 13 / 2);
+            }
+            renderSnowflake(horizontalPosition) {
+              const snowflake = document.createElement("div");
+              snowflake.style.width = "26px";
+              snowflake.style.height = "26px";
+              snowflake.style.borderRadius = "50%";
+              snowflake.style.backgroundColor = "#7ed6ff";
+              snowflake.style.position = "absolute";
+              snowflake.style.top = "50";
+              snowflake.style.left = `${horizontalPosition}px`;
+              return snowflake;
+            }
+            run() {
+              for (let i = 0; i < this.calculateSnowflakes(); i++) {
+                const randPosition = this.randomNumber(0, this.screenWidth);
+                let snowflake = this.renderSnowflake(randPosition);
+                document.body.append(snowflake);
+                let step = -70;
+                setInterval(() => {
+                  snowflake.style.top = `${step++}px`;
+                  if (step > this.screenHeight) step = -60;
+                }, this.randomNumber(1, 30) + 3);
+              }
+            }
+          }
+          let snow = new Snowfall();
+          snow.run();
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
